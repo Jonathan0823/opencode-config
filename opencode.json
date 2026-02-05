@@ -7,7 +7,12 @@
       "headers": {
         "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}"
       },
-      "enabled": true
+      "enabled": true,
+      "timeout": 30000,
+      "retry": {
+        "maxRetries": 3,
+        "backoff": "exponential"
+      }
     }
   },
   "agent": {
