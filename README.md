@@ -33,34 +33,67 @@ AI agent configurations and skills for enhancing software development workflows 
   - Safe refactoring practices
   - Code documentation standards
 
-## Installation
+## Getting Started
 
-```bash
-# Clone the repository
-git clone https://github.com/Jonathan0823/opencode-config.git
-cd opencode-config
-
-# Install dependencies
-bun install
-```
+This repository contains **configuration files** for OpenCode AI. It is not an installable package—it's a template you can copy and customize for your projects.
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) 18+ or [Bun](https://bun.sh/) runtime
-- OpenCode AI platform access
-- Context7 API key (for documentation lookup)
+- **OpenCode AI CLI** must be installed separately. See [OpenCode AI installation guide](https://opencode.ai/docs/installation)
+- *(Optional)* **Context7 API key** if you want to use the MCP documentation lookup integration
 
-## Usage
+### Setup Options
 
-This is a **configuration repository** used by the OpenCode AI platform. The configurations are loaded automatically when using the OpenCode AI CLI or IDE extensions.
+Choose one of the following approaches based on your needs:
 
-### Loading Configuration
+#### Option 1: Project-Specific Configuration
+Copy these configuration files directly into your project directory:
 
 ```bash
-# The opencode.json configuration is automatically loaded
-# when running OpenCode AI in this directory
+# Copy config and skills to your project
+cp opencode.json /path/to/your/project/
+cp -r skills/ /path/to/your/project/
+```
+
+OpenCode AI will automatically discover and use this configuration when running in that directory.
+
+#### Option 2: Global Configuration
+Use these settings across all your projects by placing them in the global config directory:
+
+```bash
+# Create global config directory if it doesn't exist
+mkdir -p ~/.config/opencode
+
+# Copy files to global location
+cp opencode.json ~/.config/opencode/
+cp -r skills/ ~/.config/opencode/
+```
+
+#### Option 3: Selective Copy
+Copy only the specific skills or configuration files you need:
+
+```bash
+# Example: Copy only the git workflow skills
+cp -r skills/git-commit/ ~/.config/opencode/skills/
+cp -r skills/git-release/ ~/.config/opencode/skills/
+```
+
+### Configuration Discovery
+
+OpenCode AI automatically discovers configurations by looking for `opencode.json` in this order:
+
+1. **Current directory** (project-specific config)
+2. **Parent directories** (walking up the tree)
+3. **`~/.config/opencode/`** (global config)
+
+Once a configuration is found, it will be loaded automatically:
+
+```bash
+# Run OpenCode AI in any directory with a config
 opencode
 ```
+
+> **Note:** The `bun install` and `@opencode-ai/plugin` dependency shown in `package.json` are **only required for plugin development**, not for using this configuration.
 
 ### Using Subagents
 
