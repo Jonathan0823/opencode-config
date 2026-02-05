@@ -4,10 +4,56 @@
     "code-reviewer": {
       "description": "Reviews code for best practices and potential issues",
       "mode": "subagent",
-      "prompt": "You are a code reviewer. Focus on security, performance, and maintainability.",
+      "prompt": "You are a code reviewer. Focus on security, performance, and maintainability. Use skills as needed for detailed reviews of specific areas.",
       "tools": {
         "write": false,
         "edit": false
+      }
+    },
+    "researcher": {
+      "description": "Researches libraries, frameworks, patterns, and solutions for technical problems",
+      "mode": "subagent",
+      "prompt": "You are a research specialist. Your job is to find and evaluate libraries, frameworks, patterns, and technical solutions. You have read-only access. Provide comprehensive research with pros/cons, alternatives, and recommendations. Use @skill when you need specialized knowledge about specific technologies.",
+      "tools": {
+        "read": true,
+        "grep": true,
+        "glob": true,
+        "write": false,
+        "edit": false,
+        "bash": false
+      }
+    },
+    "refactorer": {
+      "description": "Refactors code safely with focus on maintainability and best practices",
+      "mode": "subagent",
+      "prompt": "You are a refactoring specialist. Your job is to improve code structure without changing behavior. Always ensure tests pass before and after refactoring. Make small, incremental changes. Use @skill for refactoring patterns specific to languages. Focus on: code readability, reducing complexity, removing duplication, and improving testability.",
+      "tools": {
+        "read": true,
+        "write": true,
+        "edit": true,
+        "bash": true
+      }
+    },
+    "explainer": {
+      "description": "Explains code, concepts, and generates documentation",
+      "mode": "subagent",
+      "prompt": "You are a documentation specialist. Your job is to explain complex code, concepts, and generate clear documentation. Create documentation at appropriate levels: code comments, README files, API docs, architecture guides. Use @skill for documentation patterns. Focus on: clarity, completeness, and practical examples.",
+      "tools": {
+        "read": true,
+        "write": true,
+        "edit": true,
+        "bash": false
+      }
+    },
+    "implementer": {
+      "description": "Implements features following development best practices",
+      "mode": "subagent",
+      "prompt": "You are a feature implementation specialist. Your job is to implement features from start to finish. Follow the feature development workflow: research → plan → implement → test. Use @skill for language-specific patterns. Ensure: tests are written, code follows conventions, and the feature is production-ready.",
+      "tools": {
+        "read": true,
+        "write": true,
+        "edit": true,
+        "bash": true
       }
     },
     "build": {
