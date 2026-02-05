@@ -16,8 +16,12 @@
       "mode": "subagent",
       "prompt": "You are a code reviewer. Focus on security, performance, and maintainability. Use skills as needed for detailed reviews of specific areas.",
       "tools": {
+        "read": true,
+        "grep": true,
+        "glob": true,
         "write": false,
-        "edit": false
+        "edit": false,
+        "bash": false
       }
     },
     "researcher": {
