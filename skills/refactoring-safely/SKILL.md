@@ -1,6 +1,8 @@
 ---
 name: refactoring-safely
 description: Safe refactoring practices with tests and incremental changes
+license: MIT
+compatibility: opencode
 ---
 
 # Safe Refactoring Skill

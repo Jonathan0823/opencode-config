@@ -1,6 +1,8 @@
 ---
 name: mongodb-patterns
 description: MongoDB schema design, queries, and best practices for production
+license: MIT
+compatibility: opencode
 ---
 
 # MongoDB Patterns Skill

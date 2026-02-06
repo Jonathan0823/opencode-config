@@ -1,6 +1,8 @@
 ---
 name: ts-vue-svelte
 description: TypeScript, Vue 3, and Svelte 5 patterns and best practices
+license: MIT
+compatibility: opencode
 ---
 
 # TypeScript Vue Svelte Skill

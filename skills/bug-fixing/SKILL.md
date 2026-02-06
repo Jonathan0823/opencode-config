@@ -1,6 +1,8 @@
 ---
 name: bug-fixing
 description: Systematic approach to debugging and fixing bugs
+license: MIT
+compatibility: opencode
 ---
 
 # Bug Fixing Skill

@@ -1,6 +1,8 @@
 ---
 name: ts-react-nextjs
 description: TypeScript, React 19, and Next.js 15 patterns and best practices
+license: MIT
+compatibility: opencode
 ---
 
 # TypeScript React Next.js Skill

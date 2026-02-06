@@ -1,6 +1,8 @@
 ---
 name: code-documentation
 description: Code documentation standards, patterns, and best practices
+license: MIT
+compatibility: opencode
 ---
 
 # Code Documentation Skill

@@ -1,6 +1,8 @@
 ---
 name: feature-development
 description: End-to-end feature development workflow from research to deployment
+license: MIT
+compatibility: opencode
 ---
 
 # Feature Development Skill

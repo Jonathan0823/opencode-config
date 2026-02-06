@@ -1,6 +1,8 @@
 ---
 name: rust-patterns
 description: Rust patterns, ownership best practices, and production-ready code guidelines
+license: MIT
+compatibility: opencode
 ---
 
 # Rust Patterns Skill

@@ -1,6 +1,8 @@
 ---
 name: go-conventions
 description: Go conventions, best practices, and idiomatic patterns for production code
+license: MIT
+compatibility: opencode
 ---
 
 # Go Conventions Skill

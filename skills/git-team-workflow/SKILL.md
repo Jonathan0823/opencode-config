@@ -1,6 +1,8 @@
 ---
 name: git-team-workflow
 description: Git workflows, branching strategies, and team collaboration patterns
+license: MIT
+compatibility: opencode
 ---
 
 # Git Team Workflow Skill

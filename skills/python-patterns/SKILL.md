@@ -1,6 +1,8 @@
 ---
 name: python-patterns
 description: Python patterns, type hints, async/await, and best practices for production code
+license: MIT
+compatibility: opencode
 ---
 
 # Python Patterns Skill

@@ -1,6 +1,8 @@
 ---
 name: testing-strategies
 description: Testing strategies, patterns, and best practices for production code
+license: MIT
+compatibility: opencode
 ---
 
 # Testing Strategies Skill

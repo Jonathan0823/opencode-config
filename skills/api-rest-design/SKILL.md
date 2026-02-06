@@ -1,6 +1,8 @@
 ---
 name: api-rest-design
 description: RESTful API design patterns, versioning, and best practices
+license: MIT
+compatibility: opencode
 ---
 
 # API REST Design Skill

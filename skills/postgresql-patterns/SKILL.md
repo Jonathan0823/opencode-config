@@ -1,6 +1,8 @@
 ---
 name: postgresql-patterns
 description: PostgreSQL patterns, optimization, and best practices for production
+license: MIT
+compatibility: opencode
 ---
 
 # PostgreSQL Patterns Skill

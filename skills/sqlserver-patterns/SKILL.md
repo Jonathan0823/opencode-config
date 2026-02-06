@@ -1,6 +1,8 @@
 ---
 name: sqlserver-patterns
 description: SQL Server patterns, T-SQL, and best practices for production
+license: MIT
+compatibility: opencode
 ---
 
 # SQL Server Patterns Skill
