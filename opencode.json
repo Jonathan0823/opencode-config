@@ -85,5 +85,8 @@
         }
       }
     }
-  }
+  },
+  "plugin": [
+    "oh-my-opencode@latest"
+  ]
 }
