@@ -2,7 +2,7 @@
 
 # Context Migrate Operation
 
-**Purpose**: Copy context files from global (`~/.config/opencode/context/`) to local (`~/.config/opencode/context/`) so they're project-specific and git-committed.
+**Purpose**: Copy context files from global (`~/.config/opencode/context/`) to local (`.opencode/context/`) so they're project-specific and git-committed.
 
 **Last Updated**: 2026-02-06
 
@@ -35,7 +35,7 @@ Found:
     navigation.md (800 bytes, Version: 1.0)
     business-domain.md (1.5 KB, Version: 1.1)
 
-Local location: ~/.config/opencode/context/
+Local location: .opencode/context/
 
 Status: No local project-intelligence/ found
 ```
@@ -63,7 +63,7 @@ Nothing to migrate. Use /add-context to create project intelligence.
 
 ### Stage 2: Check for Conflicts
 
-If local `~/.config/opencode/context/project-intelligence/` already exists:
+If local `.opencode/context/project-intelligence/` already exists:
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -126,7 +126,7 @@ Migration Plan
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Will copy from: ~/.config/opencode/context/project-intelligence/
-Will copy to:   ~/.config/opencode/context/project-intelligence/
+Will copy to:   .opencode/context/project-intelligence/
 
 Files to copy:
   ✓ technical-domain.md (1.2 KB)
@@ -142,7 +142,7 @@ Proceed? [y/n]: _
 ```
 
 **Actions on approval:**
-1. Create `~/.config/opencode/context/project-intelligence/` if it doesn't exist
+1. Create `.opencode/context/project-intelligence/` if it doesn't exist
 2. Copy each file from global → local
 3. Validate copied files (frontmatter, MVI compliance)
 
@@ -155,7 +155,7 @@ Proceed? [y/n]: _
 Migration Complete
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Copied 3 files to ~/.config/opencode/context/project-intelligence/
+Copied 3 files to .opencode/context/project-intelligence/
 
   ✓ technical-domain.md
   ✓ navigation.md
