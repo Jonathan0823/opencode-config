@@ -73,7 +73,7 @@ install.sh                               # Installer
 scripts/registry/validate-registry.sh    # Validate registry
 scripts/registry/auto-detect-components.sh # Auto-detect components
 scripts/validation/validate-test-suites.sh # Validate tests
-/home/ejo4358/.config/opencode/context/                       # Context files
+~/.config/opencode/context/                       # Context files
 .opencode/command/                       # Slash commands
 docs/                                    # Documentation
 VERSION                                  # Current version

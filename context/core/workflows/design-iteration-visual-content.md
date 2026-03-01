@@ -17,7 +17,7 @@ task(
   subagent_type="Image Specialist",
   description="Generate/edit visual content",
   prompt="Context to load:
-          - /home/ejo4358/.config/opencode/context/core/visual-development.md
+          - ~/.config/opencode/context/core/visual-development.md
           
           Task: [Specific visual requirement]
           

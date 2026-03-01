@@ -8,7 +8,7 @@ This file lists external libraries/frameworks that should use **ExternalScout** 
 
 **ContextScout** checks this list when:
 1. User asks about a library/framework
-2. No internal context exists in `/home/ejo4358/.config/opencode/context/development/frameworks/`
+2. No internal context exists in `~/.config/opencode/context/development/frameworks/`
 3. Query matches a library name below
 
 **Action**: Recommend **ExternalScout** subagent

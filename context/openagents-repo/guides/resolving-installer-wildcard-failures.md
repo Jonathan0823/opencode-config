@@ -21,7 +21,7 @@
 ```
 curl: (3) URL rejected: Malformed input to a URL function
 ```
-**Cause**: Wildcard expansion returned context IDs that weren’t path-aligned (e.g., `standards-code` mapped to `/home/ejo4358/.config/opencode/context/core/standards/code-quality.md`). Installer treated IDs as paths.
+**Cause**: Wildcard expansion returned context IDs that weren’t path-aligned (e.g., `standards-code` mapped to `~/.config/opencode/context/core/standards/code-quality.md`). Installer treated IDs as paths.
 
 ### 2. Expand wildcards to path-based IDs
 **Goal**: Make wildcard expansion output `core/...` IDs that map directly to a path.

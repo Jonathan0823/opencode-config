@@ -106,7 +106,7 @@ The auto-detect system scans `.opencode/` and automatically updates the registry
 ✅ **Subagents** - `.opencode/agent/subagents/**/*.md`  
 ✅ **Commands** - `.opencode/command/**/*.md`  
 ✅ **Tools** - `.opencode/tool/**/index.ts`  
-✅ **Contexts** - `/home/ejo4358/.config/opencode/context/**/*.md`  
+✅ **Contexts** - `~/.config/opencode/context/**/*.md`  
 
 ### Frontmatter Requirements
 

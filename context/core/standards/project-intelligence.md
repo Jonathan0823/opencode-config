@@ -4,7 +4,7 @@
 
 > **What**: Living documentation that bridges business domain and technical implementation.
 > **Why**: Quick project understanding and onboarding for developers, agents, and stakeholders.
-> **Where**: `/home/ejo4358/.config/opencode/context/project-intelligence/` (dedicated folder)
+> **Where**: `~/.config/opencode/context/project-intelligence/` (dedicated folder)
 
 ## Quick Reference
 
@@ -29,7 +29,7 @@ This ensures **business and technical domains speak the same language**.
 ## Structure
 
 ```
-/home/ejo4358/.config/opencode/context/
+~/.config/opencode/context/
 ├── project-intelligence/              # Project-specific context
 │   ├── navigation.md                  # Quick overview & routes
 │   ├── business-domain.md             # Business context, problems solved
@@ -62,16 +62,16 @@ For new team members or agents:
 | Feature launch | Update `business-tech-bridge.md` |
 | Stack changes | Update `technical-domain.md` |
 
-**Full Management Guide**: See `/home/ejo4358/.config/opencode/context/core/standards/project-intelligence-management.md`
+**Full Management Guide**: See `~/.config/opencode/context/core/standards/project-intelligence-management.md`
 
 ## Integration with Context System
 
 - **Lazy Loading**: Load project intelligence first when joining a project
 - **Layering**: Then load standards and specific context as needed
-- **Reference**: See `/home/ejo4358/.config/opencode/context/core/context-system.md` for system overview
+- **Reference**: See `~/.config/opencode/context/core/context-system.md` for system overview
 
 ## Related Files
 
-- **Management Guide**: `/home/ejo4358/.config/opencode/context/core/standards/project-intelligence-management.md`
-- **Context System**: `/home/ejo4358/.config/opencode/context/core/context-system.md`
-- **Standards Index**: `/home/ejo4358/.config/opencode/context/core/standards/navigation.md`
+- **Management Guide**: `~/.config/opencode/context/core/standards/project-intelligence-management.md`
+- **Context System**: `~/.config/opencode/context/core/context-system.md`
+- **Standards Index**: `~/.config/opencode/context/core/standards/navigation.md`

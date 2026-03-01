@@ -95,13 +95,13 @@ These two fields serve fundamentally different purposes. **Never mix them.**
 
 | Field | Answers | Contains | Agent behavior |
 |-------|---------|----------|----------------|
-| `context_files` | "What rules do I follow?" | Standards, conventions, patterns from `/home/ejo4358/.config/opencode/context/` | Load and apply as coding guidelines |
+| `context_files` | "What rules do I follow?" | Standards, conventions, patterns from `~/.config/opencode/context/` | Load and apply as coding guidelines |
 | `reference_files` | "What existing code do I look at?" | Project source files, configs, schemas | Read to understand existing patterns |
 
 **Wrong** ❌ — mixing standards and source files:
 ```json
 "context_files": [
-  "/home/ejo4358/.config/opencode/context/core/standards/code-quality.md",
+  "~/.config/opencode/context/core/standards/code-quality.md",
   "package.json",
   "src/existing-auth.ts"
 ]
@@ -110,8 +110,8 @@ These two fields serve fundamentally different purposes. **Never mix them.**
 **Right** ✅ — clean separation:
 ```json
 "context_files": [
-  "/home/ejo4358/.config/opencode/context/core/standards/code-quality.md",
-  "/home/ejo4358/.config/opencode/context/core/standards/security-patterns.md"
+  "~/.config/opencode/context/core/standards/code-quality.md",
+  "~/.config/opencode/context/core/standards/security-patterns.md"
 ],
 "reference_files": [
   "package.json",
@@ -132,8 +132,8 @@ These two fields serve fundamentally different purposes. **Never mix them.**
   "depends_on": ["01"],
   "parallel": false,
   "context_files": [
-    "/home/ejo4358/.config/opencode/context/core/standards/code-quality.md",
-    "/home/ejo4358/.config/opencode/context/core/standards/security-patterns.md"
+    "~/.config/opencode/context/core/standards/code-quality.md",
+    "~/.config/opencode/context/core/standards/security-patterns.md"
   ],
   "reference_files": [
     "src/auth/token-utils.ts"
@@ -174,7 +174,7 @@ Use `enhanced-task-schema.md` when you need:
 **Old format** (still valid):
 ```json
 "context_files": [
-  "/home/ejo4358/.config/opencode/context/core/standards/code-quality.md"
+  "~/.config/opencode/context/core/standards/code-quality.md"
 ]
 ```
 
@@ -182,7 +182,7 @@ Use `enhanced-task-schema.md` when you need:
 ```json
 "context_files": [
   {
-    "path": "/home/ejo4358/.config/opencode/context/core/standards/code-quality.md",
+    "path": "~/.config/opencode/context/core/standards/code-quality.md",
     "lines": "53-95",
     "reason": "Pure function patterns for service layer"
   }

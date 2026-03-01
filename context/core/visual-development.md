@@ -59,7 +59,7 @@ task(
   subagent_type="Image Specialist",
   description="[Brief 3-5 word description]",
   prompt="Context to load:
-          - /home/ejo4358/.config/opencode/context/core/visual-development.md
+          - ~/.config/opencode/context/core/visual-development.md
           
           Task: [Detailed visual requirement]
           
@@ -447,12 +447,12 @@ After receiving output:
 
 ## Related Context
 
-- **UI Design Workflow**: `/home/ejo4358/.config/opencode/context/core/workflows/design-iteration-overview.md`
-- **Design Systems**: `/home/ejo4358/.config/opencode/context/ui/web/design-systems.md`
-- **UI Styling Standards**: `/home/ejo4358/.config/opencode/context/ui/web/ui-styling-standards.md`
-- **Animation Patterns**: `/home/ejo4358/.config/opencode/context/ui/web/animation-basics.md`, `/home/ejo4358/.config/opencode/context/ui/web/animation-advanced.md`
-- **Subagent Invocation Guide**: `/home/ejo4358/.config/opencode/context/openagents-repo/guides/subagent-invocation.md`
-- **Agent Capabilities**: `/home/ejo4358/.config/opencode/context/openagents-repo/core-concepts/agents.md`
+- **UI Design Workflow**: `~/.config/opencode/context/core/workflows/design-iteration-overview.md`
+- **Design Systems**: `~/.config/opencode/context/ui/web/design-systems.md`
+- **UI Styling Standards**: `~/.config/opencode/context/ui/web/ui-styling-standards.md`
+- **Animation Patterns**: `~/.config/opencode/context/ui/web/animation-basics.md`, `~/.config/opencode/context/ui/web/animation-advanced.md`
+- **Subagent Invocation Guide**: `~/.config/opencode/context/openagents-repo/guides/subagent-invocation.md`
+- **Agent Capabilities**: `~/.config/opencode/context/openagents-repo/core-concepts/agents.md`
 
 ---
 

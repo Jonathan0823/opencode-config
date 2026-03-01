@@ -149,7 +149,7 @@ Tool Calls: 1
 Tools Used: glob
 
 Tool Call Details:
-  1. glob: {"pattern":"*.md","path":"/home/ejo4358/.config/opencode/context/core"}
+  1. glob: {"pattern":"*.md","path":"~/.config/opencode/context/core"}
 ```
 
 **Red Flags**:
@@ -246,17 +246,17 @@ evals/agents/ContextScout/tests/
 ```yaml
 prompts:
   - text: |
-      List all markdown files in /home/ejo4358/.config/opencode/context/core/
+      List all markdown files in ~/.config/opencode/context/core/
 ```
 
 ✅ **Explicit** (works):
 ```yaml
 prompts:
   - text: |
-      Use the glob tool to find all markdown files in /home/ejo4358/.config/opencode/context/core/
+      Use the glob tool to find all markdown files in ~/.config/opencode/context/core/
       
       You MUST use the glob tool like this:
-      glob(pattern="*.md", path="/home/ejo4358/.config/opencode/context/core")
+      glob(pattern="*.md", path="~/.config/opencode/context/core")
       
       Then list the files you found.
 ```

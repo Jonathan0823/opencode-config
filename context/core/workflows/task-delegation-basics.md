@@ -51,7 +51,7 @@ Status: in_progress
 
 ## Context Files (Standards to Follow)
 Paths ContextScout discovered. Downstream agents load these for coding standards.
-- /home/ejo4358/.config/opencode/context/core/standards/code-quality.md
+- ~/.config/opencode/context/core/standards/code-quality.md
 - {other paths}
 
 ## Reference Files (Source Material)
@@ -112,7 +112,7 @@ task(
 
 | Field | Contains | Example |
 |-------|----------|---------|
-| `context_files` | **Standards only** | `/home/ejo4358/.config/opencode/context/core/standards/code-quality.md` |
+| `context_files` | **Standards only** | `~/.config/opencode/context/core/standards/code-quality.md` |
 | `reference_files` | **Source material only** | `src/auth/service.ts` |
 | `external_context` | **External docs only** (read-only) | `.tmp/external-context/drizzle/schemas.md` |
 

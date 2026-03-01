@@ -85,7 +85,7 @@ Agents reference context files in their prompts but often don't declare them as 
 ```markdown
 <!-- In agent prompt -->
 BEFORE any code implementation, ALWAYS load:
-- Code tasks → /home/ejo4358/.config/opencode/context/core/standards/code-quality.md (MANDATORY)
+- Code tasks → ~/.config/opencode/context/core/standards/code-quality.md (MANDATORY)
 ```
 
 **Without dependency declaration**:
@@ -116,7 +116,7 @@ dependencies:
 
 **Path normalization**:
 ```
-File path:     /home/ejo4358/.config/opencode/context/core/standards/code-quality.md
+File path:     ~/.config/opencode/context/core/standards/code-quality.md
 Dependency:    context:core/standards/code
                ^^^^^^^ ^^^^^^^^^^^^^^^^^^^
                type    path (no .opencode/, no .md)
@@ -125,9 +125,9 @@ Dependency:    context:core/standards/code
 **Examples**:
 ```
 dependencies:
-  - context:core/standards/code           # /home/ejo4358/.config/opencode/context/core/standards/code-quality.md
-  - context:core/standards/docs           # /home/ejo4358/.config/opencode/context/core/standards/documentation.md
-  - context:core/workflows/delegation     # /home/ejo4358/.config/opencode/context/core/workflows/task-delegation-basics.md
+  - context:core/standards/code           # ~/.config/opencode/context/core/standards/code-quality.md
+  - context:core/standards/docs           # ~/.config/opencode/context/core/standards/documentation.md
+  - context:core/workflows/delegation     # ~/.config/opencode/context/core/workflows/task-delegation-basics.md
   - context:openagents-repo/guides/adding-agent  # Project-specific context
 ```
 
@@ -212,7 +212,7 @@ Before committing changes to agents, commands, or context files:
 ### opencoder
 Uses but not declared:
 - context:core/standards/code (referenced 3 times)
-  - Line 64: "Code tasks → /home/ejo4358/.config/opencode/context/core/standards/code-quality.md"
+  - Line 64: "Code tasks → ~/.config/opencode/context/core/standards/code-quality.md"
   
 Recommended fix:
 dependencies:
@@ -352,7 +352,7 @@ jq '.components[] | .[] | select(.dependencies[]? | contains("context:core/stand
 **2. Update context file**:
 ```bash
 # Make your changes
-vim /home/ejo4358/.config/opencode/context/core/standards/code-quality.md
+vim ~/.config/opencode/context/core/standards/code-quality.md
 ```
 
 **3. Validate no broken references**:
@@ -441,7 +441,7 @@ dependencies:
 **Fix**:
 ```bash
 # Check if file exists
-ls -la /home/ejo4358/.config/opencode/context/core/standards/code-quality.md
+ls -la ~/.config/opencode/context/core/standards/code-quality.md
 
 # If exists, add to registry
 ./scripts/registry/auto-detect-components.sh --auto-add
@@ -463,7 +463,7 @@ ls -la /home/ejo4358/.config/opencode/context/core/standards/code-quality.md
 # Edit agent frontmatter to add dependency
 
 # Option 2: Remove if truly unused
-rm /home/ejo4358/.config/opencode/context/core/standards/code-analysis.md
+rm ~/.config/opencode/context/core/standards/code-analysis.md
 ./scripts/registry/auto-detect-components.sh --auto-add
 ```
 
@@ -560,9 +560,9 @@ jobs:
 
 ## Related Documentation
 
-- **Registry Guide**: `/home/ejo4358/.config/opencode/context/openagents-repo/guides/updating-registry.md`
-- **Registry Concepts**: `/home/ejo4358/.config/opencode/context/openagents-repo/core-concepts/registry.md`
-- **Adding Agents**: `/home/ejo4358/.config/opencode/context/openagents-repo/guides/adding-agent-basics.md`
+- **Registry Guide**: `~/.config/opencode/context/openagents-repo/guides/updating-registry.md`
+- **Registry Concepts**: `~/.config/opencode/context/openagents-repo/core-concepts/registry.md`
+- **Adding Agents**: `~/.config/opencode/context/openagents-repo/guides/adding-agent-basics.md`
 - **Command Reference**: `/check-context-deps` command
 
 ---

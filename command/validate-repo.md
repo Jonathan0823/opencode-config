@@ -119,7 +119,7 @@ For each profile (essential, developer, business, full, advanced):
 
 ### Step 5: Validate Context File Structure
 
-1. List all files in `/home/ejo4358/.config/opencode/context/`
+1. List all files in `~/.config/opencode/context/`
 2. Check against registry context entries
 3. Identify orphaned files (exist but not in registry)
 4. Identify missing files (in registry but don't exist)
@@ -227,7 +227,7 @@ Generated: 2025-11-19 14:30:00
 ## ⚠️ Warnings (3)
 
 1. **Orphaned Context File**
-   - File: `/home/ejo4358/.config/opencode/context/legacy/old-patterns.md`
+   - File: `~/.config/opencode/context/legacy/old-patterns.md`
    - Issue: Exists but not referenced in registry
    - Recommendation: Add to registry or remove file
 
@@ -247,7 +247,7 @@ Generated: 2025-11-19 14:30:00
 
 1. **Missing Context File**
    - Component: `context:advanced-patterns`
-   - Expected path: `/home/ejo4358/.config/opencode/context/core/advanced-patterns.md`
+   - Expected path: `~/.config/opencode/context/core/advanced-patterns.md`
    - Referenced in: developer, full, advanced profiles
    - Action: Create file or remove from registry
 
@@ -295,7 +295,7 @@ Generated: 2025-11-19 14:30:00
 ## 🔧 Recommended Actions
 
 ### High Priority (Errors)
-1. Create missing file: `/home/ejo4358/.config/opencode/context/core/advanced-patterns.md`
+1. Create missing file: `~/.config/opencode/context/core/advanced-patterns.md`
 2. Fix broken dependency in `opencoder`
 
 ### Medium Priority (Warnings)

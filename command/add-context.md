@@ -120,15 +120,15 @@ Help users add project patterns using Project Intelligence standard. **Easiest w
 
 Determine where project intelligence files should be saved. This runs BEFORE anything else.
 
-**Default behavior**: Always use local `/home/ejo4358/.config/opencode/context/project-intelligence/`.
+**Default behavior**: Always use local `~/.config/opencode/context/project-intelligence/`.
 **Override**: `--global` flag saves to `~/.config/opencode/context/project-intelligence/` instead.
 
 **Resolution:**
 
 1. If `--global` flag → `$CONTEXT_DIR = ~/.config/opencode/context/project-intelligence/`
-2. Otherwise → `$CONTEXT_DIR = /home/ejo4358/.config/opencode/context/project-intelligence/` (always local)
+2. Otherwise → `$CONTEXT_DIR = ~/.config/opencode/context/project-intelligence/` (always local)
 
-**If `/home/ejo4358/.config/opencode/context/` doesn't exist yet**, create it silently — no prompt needed. The directory structure is part of the output shown in Stage 4.
+**If `~/.config/opencode/context/` doesn't exist yet**, create it silently — no prompt needed. The directory structure is part of the output shown in Stage 4.
 
 **Variable**: `$CONTEXT_DIR` is set here and used in all subsequent stages.
 
@@ -193,7 +193,7 @@ Ready to harvest? [y/n]: _
 
 ### Stage 1: Detect Existing Context
 
-Check: `$CONTEXT_DIR` (set in Stage 0.5 — either `/home/ejo4358/.config/opencode/context/project-intelligence/` or `~/.config/opencode/context/project-intelligence/`)
+Check: `$CONTEXT_DIR` (set in Stage 0.5 — either `~/.config/opencode/context/project-intelligence/` or `~/.config/opencode/context/project-intelligence/`)
 
 **If exists**:
 
@@ -683,8 +683,8 @@ Already have global patterns? Bring them into this project:
 📚 Learn More
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-- Project Intelligence: /home/ejo4358/.config/opencode/context/core/standards/project-intelligence.md
-- MVI Principles: /home/ejo4358/.config/opencode/context/core/context-system/standards/mvi.md
+- Project Intelligence: ~/.config/opencode/context/core/standards/project-intelligence.md
+- MVI Principles: ~/.config/opencode/context/core/context-system/standards/mvi.md
 - Context System: CONTEXT_SYSTEM_GUIDE.md
 
 ````
@@ -932,22 +932,22 @@ Check code & retry.
 A: Check file exists, <200 lines. Run `/context validate`
 
 **Q: See what's in context?**
-A: `cat /home/ejo4358/.config/opencode/context/project-intelligence/technical-domain.md` (local) or `cat ~/.config/opencode/context/project-intelligence/technical-domain.md` (global)
+A: `cat ~/.config/opencode/context/project-intelligence/technical-domain.md` (local) or `cat ~/.config/opencode/context/project-intelligence/technical-domain.md` (global)
 
 **Q: Multiple context files?**
 A: Yes! Create in your project-intelligence directory. Agents load all.
 
 **Q: Remove pattern?**
-A: Edit directly: `nano /home/ejo4358/.config/opencode/context/project-intelligence/technical-domain.md`
+A: Edit directly: `nano ~/.config/opencode/context/project-intelligence/technical-domain.md`
 
 **Q: Share w/ team?**
-A: Yes! Use local install (`/home/ejo4358/.config/opencode/context/project-intelligence/`) and commit to repo. Team members get your patterns automatically.
+A: Yes! Use local install (`~/.config/opencode/context/project-intelligence/`) and commit to repo. Team members get your patterns automatically.
 
 **Q: Local vs global?**
 A: Local (`.opencode/`) = project-specific, committed to git, team-shared. Global (`~/.config/opencode/`) = personal defaults across all projects. Local overrides global.
 
 **Q: Installed globally but want project patterns?**
-A: Run `/add-context` (defaults to local). Creates `/home/ejo4358/.config/opencode/context/project-intelligence/` in your project even if OAC was installed globally.
+A: Run `/add-context` (defaults to local). Creates `~/.config/opencode/context/project-intelligence/` in your project even if OAC was installed globally.
 
 **Q: Have external context files in .tmp/?**
 A: Run `/context harvest` to extract and organize them into permanent context

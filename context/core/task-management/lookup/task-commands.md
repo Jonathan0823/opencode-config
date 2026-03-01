@@ -11,7 +11,7 @@
 ## Usage
 
 ```bash
-npx ts-node /home/ejo4358/.config/opencode/context/tasks/scripts/task-cli.ts <command> [args]
+npx ts-node ~/.config/opencode/context/tasks/scripts/task-cli.ts <command> [args]
 ```
 
 Task files are stored in `.tmp/tasks/` at the project root.
@@ -192,7 +192,7 @@ For multi-stage orchestration workflows, use these planning agents before task c
 
 These agents populate enhanced schema fields (bounded_context, contracts, related_adrs, rice_score, etc.) automatically.
 
-See `/home/ejo4358/.config/opencode/context/core/workflows/multi-stage-orchestration.md` for the complete workflow.
+See `~/.config/opencode/context/core/workflows/multi-stage-orchestration.md` for the complete workflow.
 
 ---
 

@@ -8,7 +8,7 @@
 
 **Key Principle**: Use context index for discovery, load specific files as needed
 
-**Index Location**: `/home/ejo4358/.config/opencode/context/navigation.md` - Quick map of all contexts
+**Index Location**: `~/.config/opencode/context/navigation.md` - Quick map of all contexts
 
 **Structure**: standards/ (quality + analysis), workflows/ (process + review), system/ (internals)
 
@@ -22,7 +22,7 @@ Context files provide guidelines and templates for specific tasks. Use the index
 
 ## Context Index System
 
-**Central Index**: `/home/ejo4358/.config/opencode/context/navigation.md` - Ultra-compact map of all contexts
+**Central Index**: `~/.config/opencode/context/navigation.md` - Ultra-compact map of all contexts
 
 The index provides:
 - Quick map for common tasks (code, docs, tests, review, delegation)
@@ -32,7 +32,7 @@ The index provides:
 
 ### Available Context Files
 
-All files are in `/home/ejo4358/.config/opencode/context/core/` with organized subfolders:
+All files are in `~/.config/opencode/context/core/` with organized subfolders:
 
 ### Standards (Quality Guidelines + Analysis)
 - `standards/code-quality.md` - Modular, functional code principles [critical]
@@ -55,7 +55,7 @@ All files are in `/home/ejo4358/.config/opencode/context/core/` with organized s
 - Review task? → Load `workflows/code-review.md`
 
 **Step 2: Load Index** (for keyword matching)
-- Load `/home/ejo4358/.config/opencode/context/navigation.md`
+- Load `~/.config/opencode/context/navigation.md`
 - Scan triggers to find relevant contexts
 - Load specific context files as needed
 
@@ -71,48 +71,48 @@ All files are in `/home/ejo4358/.config/opencode/context/core/` with organized s
 
 ## When to Use Each File
 
-### /home/ejo4358/.config/opencode/context/core/standards/code-quality.md
+### ~/.config/opencode/context/core/standards/code-quality.md
 - Writing new code
 - Modifying existing code
 - Following modular/functional patterns
 - Making architectural decisions
 
-### /home/ejo4358/.config/opencode/context/core/standards/documentation.md
+### ~/.config/opencode/context/core/standards/documentation.md
 - Writing README files
 - Creating API documentation
 - Adding code comments
 
-### /home/ejo4358/.config/opencode/context/core/standards/test-coverage.md
+### ~/.config/opencode/context/core/standards/test-coverage.md
 - Writing new tests
 - Running test suites
 - Debugging test failures
 
-### /home/ejo4358/.config/opencode/context/core/standards/security-patterns.md
+### ~/.config/opencode/context/core/standards/security-patterns.md
 - Error handling
 - Security patterns
 - Common code patterns
 
-### /home/ejo4358/.config/opencode/context/core/standards/code-analysis.md
+### ~/.config/opencode/context/core/standards/code-analysis.md
 - Analyzing codebase patterns
 - Investigating bugs
 - Evaluating architecture
 
-### /home/ejo4358/.config/opencode/context/core/workflows/task-delegation-basics.md
+### ~/.config/opencode/context/core/workflows/task-delegation-basics.md
 - Delegating to general agent
 - Creating task context
 - Multi-file coordination
 
-### /home/ejo4358/.config/opencode/context/core/workflows/feature-breakdown.md
+### ~/.config/opencode/context/core/workflows/feature-breakdown.md
 - Tasks with 4+ files
 - Estimated effort >60 minutes
 - Complex dependencies
 
-### /home/ejo4358/.config/opencode/context/core/workflows/session-management.md
+### ~/.config/opencode/context/core/workflows/session-management.md
 - Session lifecycle
 - Cleanup procedures
 - Session isolation
 
-### /home/ejo4358/.config/opencode/context/core/workflows/code-review.md
+### ~/.config/opencode/context/core/workflows/code-review.md
 - Reviewing code
 - Conducting code audits
 - Providing PR feedback
@@ -145,8 +145,8 @@ Status: in_progress
 - {file 1} - {purpose}
 
 ## Static Context Available
-- /home/ejo4358/.config/opencode/context/core/standards/code-quality.md
-- /home/ejo4358/.config/opencode/context/core/standards/test-coverage.md
+- ~/.config/opencode/context/core/standards/code-quality.md
+- ~/.config/opencode/context/core/standards/test-coverage.md
 
 ## Constraints/Notes
 {Important context}

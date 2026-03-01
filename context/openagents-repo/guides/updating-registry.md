@@ -134,7 +134,7 @@ dependencies:
 ---
 ```
 
-**Context** (`/home/ejo4358/.config/opencode/context/category/your-context.md`):
+**Context** (`~/.config/opencode/context/category/your-context.md`):
 ```yaml
 ---
 description: What knowledge this context provides
@@ -463,7 +463,7 @@ Currently, aliases must be added **manually** to `registry.json` (auto-detect do
   "id": "session-management",
   "name": "Session Management",
   "type": "context",
-  "path": "/home/ejo4358/.config/opencode/context/core/workflows/session-management.md",
+  "path": "~/.config/opencode/context/core/workflows/session-management.md",
   "aliases": [
     "workflows-sessions",
     "sessions"

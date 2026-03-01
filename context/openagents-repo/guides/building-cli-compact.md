@@ -96,4 +96,4 @@ Apply `content-creation` principles to your CLI output:
 
 ---
 
-**Reference**: See `/home/ejo4358/.config/opencode/context/openagents-repo/guides/adding-skill-basics.md` for the full, detailed walkthrough.
+**Reference**: See `~/.config/opencode/context/openagents-repo/guides/adding-skill-basics.md` for the full, detailed walkthrough.

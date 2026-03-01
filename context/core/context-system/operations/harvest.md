@@ -260,8 +260,8 @@ Choose [1/2/3] (default: 1): _
    - Deleted: .tmp/IMPLEMENTATION-NOTES.md (no valuable content)
 
 📊 Updated navigation maps:
-   - /home/ejo4358/.config/opencode/context/core/navigation.md
-   - /home/ejo4358/.config/opencode/context/development/navigation.md
+   - ~/.config/opencode/context/core/navigation.md
+   - ~/.config/opencode/context/development/navigation.md
 
 💾 Disk space freed: 6.8 KB
 ```

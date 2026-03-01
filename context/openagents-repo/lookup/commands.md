@@ -336,7 +336,7 @@ find .opencode/agent -name "{agent-name}.md"
 find evals/agents -name "*.yaml"
 
 # Find context
-find /home/ejo4358/.config/opencode/context -name "*.md"
+find ~/.config/opencode/context -name "*.md"
 
 # Find scripts
 find scripts -name "*.sh"

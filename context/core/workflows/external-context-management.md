@@ -226,8 +226,8 @@ When TaskManager creates subtask JSONs, it should include external context files
   "id": "01-drizzle-schema-setup",
   "title": "Set up Drizzle schema with modular organization",
   "context_files": [
-    "/home/ejo4358/.config/opencode/context/core/standards/code-quality.md",
-    "/home/ejo4358/.config/opencode/context/core/standards/test-coverage.md"
+    "~/.config/opencode/context/core/standards/code-quality.md",
+    "~/.config/opencode/context/core/standards/test-coverage.md"
   ],
   "reference_files": [
     "package.json",
@@ -401,6 +401,6 @@ After deleting external context files, update `.manifest.json`:
 ## References
 
 - **ExternalScout**: `.opencode/agent/subagents/core/externalscout.md` — Fetches and persists external docs
-- **Task Delegation**: `/home/ejo4358/.config/opencode/context/core/workflows/task-delegation-basics.md` — How to reference external context in sessions
-- **Session Management**: `/home/ejo4358/.config/opencode/context/core/workflows/session-management.md` — Session lifecycle
+- **Task Delegation**: `~/.config/opencode/context/core/workflows/task-delegation-basics.md` — How to reference external context in sessions
+- **Session Management**: `~/.config/opencode/context/core/workflows/session-management.md` — Session lifecycle
 - **Library Registry**: `.opencode/skills/context7/library-registry.md` — Supported libraries and query patterns

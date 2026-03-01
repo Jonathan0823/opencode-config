@@ -17,7 +17,7 @@
 - First-time setup
 - Version upgrades
 
-**Rule**: If it's not in `/home/ejo4358/.config/opencode/context/`, use ExternalScout.
+**Rule**: If it's not in `~/.config/opencode/context/`, use ExternalScout.
 
 ---
 
@@ -124,7 +124,7 @@ task(
 | Aspect | ContextScout | ExternalScout |
 |--------|--------------|---------------|
 | **Searches** | Internal project files | External documentation |
-| **Location** | `/home/ejo4358/.config/opencode/context/` | Internet (Context7, docs) |
+| **Location** | `~/.config/opencode/context/` | Internet (Context7, docs) |
 | **Returns** | Project standards | Library APIs |
 | **Use for** | "How we do things here" | "How this library works" |
 | **Speed** | Fast (local) | Slower (network) |

@@ -22,7 +22,7 @@
 </rule>
 
 ```
-/home/ejo4358/.config/opencode/context/{category}/
+~/.config/opencode/context/{category}/
 ├── navigation.md              # Navigation map (REQUIRED)
 ├── concepts/              # What it is
 │   └── {topic}.md

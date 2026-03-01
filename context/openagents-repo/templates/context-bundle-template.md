@@ -31,36 +31,36 @@ Status: in_progress
 ## Relevant Standards (Load These Before Starting)
 
 **Core Standards**:
-- `/home/ejo4358/.config/opencode/context/core/standards/code.md` → Modular, functional code patterns
-- `/home/ejo4358/.config/opencode/context/core/standards/tests.md` → Testing requirements and TDD
-- `/home/ejo4358/.config/opencode/context/core/standards/docs.md` → Documentation standards
-- (example: `/home/ejo4358/.config/opencode/context/core/standards/patterns.md`) → Error handling, security patterns
+- `~/.config/opencode/context/core/standards/code.md` → Modular, functional code patterns
+- `~/.config/opencode/context/core/standards/tests.md` → Testing requirements and TDD
+- `~/.config/opencode/context/core/standards/docs.md` → Documentation standards
+- (example: `~/.config/opencode/context/core/standards/patterns.md`) → Error handling, security patterns
 
 **Core Workflows**:
-- (example: `/home/ejo4358/.config/opencode/context/core/workflows/delegation.md`) → Delegation process
-- (example: `/home/ejo4358/.config/opencode/context/core/workflows/task-breakdown.md`) → Task breakdown methodology
-- (example: `/home/ejo4358/.config/opencode/context/core/workflows/review.md`) → Code review guidelines
+- (example: `~/.config/opencode/context/core/workflows/delegation.md`) → Delegation process
+- (example: `~/.config/opencode/context/core/workflows/task-breakdown.md`) → Task breakdown methodology
+- (example: `~/.config/opencode/context/core/workflows/review.md`) → Code review guidelines
 
 ## Repository-Specific Context (Load These Before Starting)
 
 **Quick Start** (ALWAYS load first):
-- `/home/ejo4358/.config/opencode/context/openagents-repo/quick-start.md` → Repo orientation and common commands
+- `~/.config/opencode/context/openagents-repo/quick-start.md` → Repo orientation and common commands
 
 **Core Concepts** (Load based on task type):
-- `/home/ejo4358/.config/opencode/context/openagents-repo/core-concepts/agents.md` → How agents work
-- `/home/ejo4358/.config/opencode/context/openagents-repo/core-concepts/evals.md` → How testing works
-- `/home/ejo4358/.config/opencode/context/openagents-repo/core-concepts/registry.md` → How registry works
-- `/home/ejo4358/.config/opencode/context/openagents-repo/core-concepts/categories.md` → How organization works
+- `~/.config/opencode/context/openagents-repo/core-concepts/agents.md` → How agents work
+- `~/.config/opencode/context/openagents-repo/core-concepts/evals.md` → How testing works
+- `~/.config/opencode/context/openagents-repo/core-concepts/registry.md` → How registry works
+- `~/.config/opencode/context/openagents-repo/core-concepts/categories.md` → How organization works
 
 **Guides** (Load for specific workflows):
-- `/home/ejo4358/.config/opencode/context/openagents-repo/guides/adding-agent-basics.md` → Step-by-step agent creation
-- `/home/ejo4358/.config/opencode/context/openagents-repo/guides/testing-agent.md` → Testing workflow
-- `/home/ejo4358/.config/opencode/context/openagents-repo/guides/updating-registry.md` → Registry workflow
-- `/home/ejo4358/.config/opencode/context/openagents-repo/guides/debugging.md` → Troubleshooting
+- `~/.config/opencode/context/openagents-repo/guides/adding-agent-basics.md` → Step-by-step agent creation
+- `~/.config/opencode/context/openagents-repo/guides/testing-agent.md` → Testing workflow
+- `~/.config/opencode/context/openagents-repo/guides/updating-registry.md` → Registry workflow
+- `~/.config/opencode/context/openagents-repo/guides/debugging.md` → Troubleshooting
 
 **Lookup** (Quick reference):
-- `/home/ejo4358/.config/opencode/context/openagents-repo/lookup/file-locations.md` → Where everything is
-- `/home/ejo4358/.config/opencode/context/openagents-repo/lookup/commands.md` → Command reference
+- `~/.config/opencode/context/openagents-repo/lookup/file-locations.md` → Where everything is
+- `~/.config/opencode/context/openagents-repo/lookup/commands.md` → Command reference
 
 ## Key Requirements
 
@@ -199,7 +199,7 @@ Create a context bundle when:
 
 2. **Copy template**:
    ```bash
-   cp /home/ejo4358/.config/opencode/context/openagents-repo/templates/context-bundle-template.md \
+   cp ~/.config/opencode/context/openagents-repo/templates/context-bundle-template.md \
       .tmp/context/{session-id}/bundle.md
    ```
 
@@ -242,7 +242,7 @@ Create a context bundle when:
 
 ### Example Context Bundle
 
-See `/home/ejo4358/.config/opencode/context/openagents-repo/examples/context-bundle-example.md` for a complete example.
+See `~/.config/opencode/context/openagents-repo/examples/context-bundle-example.md` for a complete example.
 
 ---
 

@@ -129,9 +129,9 @@ tags:
 
 ## Related Files
 
-- **Testing subagents**: `/home/ejo4358/.config/opencode/context/openagents-repo/guides/testing-subagents.md`
-- **Subagent invocation**: `/home/ejo4358/.config/opencode/context/openagents-repo/guides/subagent-invocation.md`
-- **Agent concepts**: `/home/ejo4358/.config/opencode/context/openagents-repo/core-concepts/agents.md`
+- **Testing subagents**: `~/.config/opencode/context/openagents-repo/guides/testing-subagents.md`
+- **Subagent invocation**: `~/.config/opencode/context/openagents-repo/guides/subagent-invocation.md`
+- **Agent concepts**: `~/.config/opencode/context/openagents-repo/core-concepts/agents.md`
 
 ---
 

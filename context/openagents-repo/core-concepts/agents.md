@@ -232,7 +232,7 @@ Agents should load relevant context files based on task type:
 <!-- Context: standards/code | Priority: critical -->
 ```
 
-Loads: `/home/ejo4358/.config/opencode/context/core/standards/code-quality.md`
+Loads: `~/.config/opencode/context/core/standards/code-quality.md`
 
 ### Category Context
 
@@ -240,7 +240,7 @@ Loads: `/home/ejo4358/.config/opencode/context/core/standards/code-quality.md`
 <!-- Context: development/react-patterns | Priority: high -->
 ```
 
-Loads: `/home/ejo4358/.config/opencode/context/ui/web/react-patterns.md`
+Loads: `~/.config/opencode/context/ui/web/react-patterns.md`
 
 ### Multiple Contexts
 

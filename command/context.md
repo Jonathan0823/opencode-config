@@ -25,7 +25,7 @@ dependencies:
   </rule>
   
   <rule id="lazy_load">
-    ALWAYS read required context files from /home/ejo4358/.config/opencode/context/core/context-system/ BEFORE executing operations.
+    ALWAYS read required context files from ~/.config/opencode/context/core/context-system/ BEFORE executing operations.
   </rule>
 </critical_rules>
 
@@ -130,7 +130,7 @@ When invoked without arguments: `/context`
 ### Migration
 
 **`/context migrate`**
-- Copy project-intelligence from global (`~/.config/opencode/context/`) to local (`/home/ejo4358/.config/opencode/context/`)
+- Copy project-intelligence from global (`~/.config/opencode/context/`) to local (`~/.config/opencode/context/`)
 - For users who installed globally but want project-specific, git-committed context
 - Shows diff if local files already exist, asks before overwriting
 - Optionally cleans up global project-intelligence after migration
@@ -191,7 +191,7 @@ When invoked without arguments: `/context`
   </operation>
 </lazy_load_map>
 
-**All files located in**: `/home/ejo4358/.config/opencode/context/core/context-system/`
+**All files located in**: `~/.config/opencode/context/core/context-system/`
 
 ---
 
@@ -201,7 +201,7 @@ When invoked without arguments: `/context`
   <!-- Delegate operations to specialized subagents -->
   <route operations="harvest|extract|organize|update|error|create|migrate" to="ContextOrganizer">
     Pass: operation name, arguments, lazy load map
-    Subagent loads: Required context files from /home/ejo4358/.config/opencode/context/core/context-system/
+    Subagent loads: Required context files from ~/.config/opencode/context/core/context-system/
     Subagent executes: Multi-stage workflow per operation
   </route>
   
@@ -217,7 +217,7 @@ When invoked without arguments: `/context`
 
 ### Structure
 ```
-/home/ejo4358/.config/opencode/context/core/context-system/
+~/.config/opencode/context/core/context-system/
 ├── operations/     # How to do things (harvest, extract, organize, update)
 ├── standards/      # What to follow (mvi, structure, templates)
 └── guides/         # Step-by-step (workflows, compact, creation)
@@ -279,7 +279,7 @@ When invoked without arguments: `/context`
 ### Migrate Global to Local
 ```bash
 /context migrate
-# Copies project-intelligence from ~/.config/opencode/context/ to /home/ejo4358/.config/opencode/context/
+# Copies project-intelligence from ~/.config/opencode/context/ to ~/.config/opencode/context/
 # Shows what will be copied, asks for approval before proceeding
 ```
 
@@ -299,7 +299,7 @@ After any operation:
 
 ## Full Documentation
 
-**Context System Location**: `/home/ejo4358/.config/opencode/context/core/context-system/`
+**Context System Location**: `~/.config/opencode/context/core/context-system/`
 
 **Structure**:
 - `operations/` - Detailed operation workflows

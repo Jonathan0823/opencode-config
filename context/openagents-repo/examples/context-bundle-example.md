@@ -18,28 +18,28 @@ Create a new data analyst agent for the OpenAgents Control repository. This agen
 ## Relevant Standards (Load These Before Starting)
 
 **Core Standards**:
-- `/home/ejo4358/.config/opencode/context/core/standards/code-quality.md` → Modular, functional code patterns
-- `/home/ejo4358/.config/opencode/context/core/standards/test-coverage.md` → Testing requirements and TDD
-- `/home/ejo4358/.config/opencode/context/core/standards/documentation.md` → Documentation standards
+- `~/.config/opencode/context/core/standards/code-quality.md` → Modular, functional code patterns
+- `~/.config/opencode/context/core/standards/test-coverage.md` → Testing requirements and TDD
+- `~/.config/opencode/context/core/standards/documentation.md` → Documentation standards
 
 **Core Workflows**:
-- `/home/ejo4358/.config/opencode/context/core/workflows/feature-breakdown.md` → Task breakdown methodology
+- `~/.config/opencode/context/core/workflows/feature-breakdown.md` → Task breakdown methodology
 
 ## Repository-Specific Context (Load These Before Starting)
 
 **Quick Start** (ALWAYS load first):
-- `/home/ejo4358/.config/opencode/context/openagents-repo/quick-start.md` → Repo orientation and common commands
+- `~/.config/opencode/context/openagents-repo/quick-start.md` → Repo orientation and common commands
 
 **Core Concepts** (Load based on task type):
-- `/home/ejo4358/.config/opencode/context/openagents-repo/core-concepts/agents.md` → How agents work
-- `/home/ejo4358/.config/opencode/context/openagents-repo/core-concepts/evals.md` → How testing works
-- `/home/ejo4358/.config/opencode/context/openagents-repo/core-concepts/registry.md` → How registry works
-- `/home/ejo4358/.config/opencode/context/openagents-repo/core-concepts/categories.md` → How organization works
+- `~/.config/opencode/context/openagents-repo/core-concepts/agents.md` → How agents work
+- `~/.config/opencode/context/openagents-repo/core-concepts/evals.md` → How testing works
+- `~/.config/opencode/context/openagents-repo/core-concepts/registry.md` → How registry works
+- `~/.config/opencode/context/openagents-repo/core-concepts/categories.md` → How organization works
 
 **Guides** (Load for specific workflows):
-- `/home/ejo4358/.config/opencode/context/openagents-repo/guides/adding-agent-basics.md` → Step-by-step agent creation
-- `/home/ejo4358/.config/opencode/context/openagents-repo/guides/testing-agent.md` → Testing workflow
-- `/home/ejo4358/.config/opencode/context/openagents-repo/guides/updating-registry.md` → Registry workflow
+- `~/.config/opencode/context/openagents-repo/guides/adding-agent-basics.md` → Step-by-step agent creation
+- `~/.config/opencode/context/openagents-repo/guides/testing-agent.md` → Testing workflow
+- `~/.config/opencode/context/openagents-repo/guides/updating-registry.md` → Registry workflow
 
 ## Key Requirements
 
@@ -92,7 +92,7 @@ Create a new data analyst agent for the OpenAgents Control repository. This agen
 
 **Modify**:
 - `registry.json` - Add data-analyst agent entry
-- `/home/ejo4358/.config/opencode/context/navigation.md` - Add data category context if needed
+- `~/.config/opencode/context/navigation.md` - Add data category context if needed
 
 ## Success Criteria
 

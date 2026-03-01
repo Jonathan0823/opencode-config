@@ -72,7 +72,7 @@ opencode-agents/
 | **Category agents** | `.opencode/agent/{category}/` |
 | **Subagents** | `.opencode/agent/subagents/` |
 | **Commands** | `.opencode/command/` |
-| **Context files** | `/home/ejo4358/.config/opencode/context/` |
+| **Context files** | `~/.config/opencode/context/` |
 | **Prompt variants** | `.opencode/prompts/{category}/{agent}/` |
 | **Tools** | `.opencode/tool/` |
 | **Plugins** | `.opencode/plugin/` |
@@ -95,7 +95,7 @@ opencode-agents/
 | **New category agent** | `.opencode/agent/{category}/{name}.md` |
 | **New subagent** | `.opencode/agent/subagents/{category}/{name}.md` |
 | **New command** | `.opencode/command/{name}.md` |
-| **New context** | `/home/ejo4358/.config/opencode/context/{category}/{name}.md` |
+| **New context** | `~/.config/opencode/context/{category}/{name}.md` |
 | **Agent tests** | `evals/agents/{category}/{agent}/tests/` |
 | **Test config** | `evals/agents/{category}/{agent}/config/config.yaml` |
 | **Documentation** | `docs/{section}/{topic}.md` |
@@ -152,12 +152,12 @@ README.md                            # Main documentation
 ### Core Context
 
 ```
-/home/ejo4358/.config/opencode/context/core/standards/code-quality.md
-/home/ejo4358/.config/opencode/context/core/standards/documentation.md
-/home/ejo4358/.config/opencode/context/core/standards/test-coverage.md
-/home/ejo4358/.config/opencode/context/core/standards/security-patterns.md
-/home/ejo4358/.config/opencode/context/core/workflows/task-delegation-basics.md
-/home/ejo4358/.config/opencode/context/core/workflows/code-review.md
+~/.config/opencode/context/core/standards/code-quality.md
+~/.config/opencode/context/core/standards/documentation.md
+~/.config/opencode/context/core/standards/test-coverage.md
+~/.config/opencode/context/core/standards/security-patterns.md
+~/.config/opencode/context/core/workflows/task-delegation-basics.md
+~/.config/opencode/context/core/workflows/code-review.md
 ```
 
 ### Registry Scripts
@@ -203,13 +203,13 @@ evals/framework/src/types/            # TypeScript types
 ### Context
 
 ```
-/home/ejo4358/.config/opencode/context/{category}/{topic}.md
+~/.config/opencode/context/{category}/{topic}.md
 ```
 
 **Examples**:
-- `/home/ejo4358/.config/opencode/context/core/standards/code-quality.md`
-- `/home/ejo4358/.config/opencode/context/ui/web/react-patterns.md`
-- `/home/ejo4358/.config/opencode/context/content-creation/principles/copywriting-frameworks.md`
+- `~/.config/opencode/context/core/standards/code-quality.md`
+- `~/.config/opencode/context/ui/web/react-patterns.md`
+- `~/.config/opencode/context/content-creation/principles/copywriting-frameworks.md`
 
 ### Tests
 
@@ -282,10 +282,10 @@ find evals/agents -name "*.yaml"
 
 ```bash
 # By category
-ls /home/ejo4358/.config/opencode/context/{category}/
+ls ~/.config/opencode/context/{category}/
 
 # All context
-find /home/ejo4358/.config/opencode/context -name "*.md"
+find ~/.config/opencode/context -name "*.md"
 ```
 
 ### Find Script

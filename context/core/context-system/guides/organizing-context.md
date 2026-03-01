@@ -61,7 +61,7 @@
 ### 2. Choose Pattern
 - Use decision tree above
 - Consider future growth
-- Check existing patterns in `/home/ejo4358/.config/opencode/context/`
+- Check existing patterns in `~/.config/opencode/context/`
 
 ### 3. Create Directory Structure
 ```bash
