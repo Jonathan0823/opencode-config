@@ -1,6 +1,6 @@
 # OpenCode AI Configuration Repository
 
-AI agent configurations and skills for enhancing software development workflows using OpenCode AI. This repository provides specialized subagents for code review, research, refactoring, documentation, and feature implementation, plus **26 specialized skills** covering development workflows, security, DevOps, databases, and best practices.
+This repository is the configuration source for **OpenAgents Control (OAC)**, providing specialized subagents for code review, research, refactoring, documentation, and feature implementation, plus **28 specialized skills** covering development workflows, security, DevOps, databases, and best practices.
 
 ## Features
 
@@ -12,7 +12,7 @@ AI agent configurations and skills for enhancing software development workflows 
 - **Explainer** (`@explainer`) - Explains code concepts and generates comprehensive documentation
 - **Implementer** (`@implementer`) - Implements features end-to-end following development workflows
 
-### 🛠️ Development Skills (26 Total)
+### 🛠️ Development Skills (28 Total)
 
 #### 🔧 Development Workflow (6 skills)
 - **Git Workflow** - Conventional commits, automated releases, branching strategies
@@ -66,7 +66,7 @@ cp opencode.json /path/to/your/project/
 cp -r skills/ /path/to/your/project/
 ```
 
-#### Option 2: Global Configuration (Recommended)
+#### Option 2: Global Configuration
 
 ```bash
 mkdir -p ~/.config/opencode
@@ -181,53 +181,94 @@ Invoke skills using the `@` syntax:
 | Skill | Description | Use When |
 |-------|-------------|----------|
 | [skill-creator](skills/skill-creator/SKILL.md) | Guide for creating effective skills | Creating new skills |
+| [context7](skills/context7/SKILL.md) | Context7 documentation lookup integration | Looking up library docs |
+| [task-management](skills/task-management/SKILL.md) | Task CLI for tracking subtasks | Managing complex workflows |
 
 ## 📊 Stats
 
-- **Total Skills:** 26
+- **Total Skills:** 28
 - **With Progressive Disclosure:** 6 (security, docker, ci-cd, kubernetes, performance, microservices, observability)
 - **Average SKILL.md Size:** ~140 lines (optimized for context window)
-- **Total Reference Files:** 21
+- **Subagent Categories:** 3 (core, code, development)
+- **Command Definitions:** 10+
 - **License:** MIT (all skills)
 
 ## 🏗️ Architecture
 
+### Repository Structure
+
+```
+.
+├── agent/          # Core agent prompts and specialized subagents
+├── command/        # Slash command definitions
+├── commands/       # Additional command packs
+├── context/        # Context system, standards, workflows, project intelligence
+├── skills/         # Reusable skill modules
+├── tool/           # Tooling utilities
+├── opencode.json   # Main runtime configuration
+├── AGENTS.md       # Agent behavior and interaction standards
+└── README.md
+```
+
 ### Skill Structure
 
 ```
-opencode-config/
-├── opencode.json          # Main agent configuration
-├── AGENTS.md              # AI agent interaction standards
-├── README.md              # This file
-├── package.json           # Node.js dependencies
-├── bun.lock               # Bun lock file
-└── skills/                # AI skills directory
-    ├── git-commit/        # Git commit conventions
-    ├── git-release/       # Release management
-    ├── git-team-workflow/ # Git workflow patterns
-    ├── go-conventions/    # Go language patterns
-    ├── rust-patterns/     # Rust language patterns
-    ├── ts-react-nextjs/   # React/Next.js patterns
-    ├── ts-vue-svelte/     # Vue/Svelte patterns
-    ├── frontend-design/   # UI/UX design
-    ├── api-rest-design/   # API design patterns
-    ├── security-best-practices/  # Security + references/
-    ├── docker-patterns/   # Docker + references/
-    ├── ci-cd-pipelines/   # CI/CD + references/
-    ├── kubernetes-patterns/      # K8s + references/
-    ├── performance-optimization/ # Performance + references/
-    ├── microservices-patterns/   # Microservices + references/
-    ├── observability-monitoring/ # Observability + references/
-    ├── postgresql-patterns/      # PostgreSQL patterns
-    ├── sqlserver-patterns/       # SQL Server patterns
-    ├── mongodb-patterns/         # MongoDB patterns
-    ├── testing-strategies/       # Testing patterns
-    ├── feature-development/      # Feature development
-    ├── bug-fixing/               # Bug fixing
-    ├── refactoring-safely/       # Safe refactoring
-    ├── code-documentation/       # Documentation
-    └── skill-creator/            # Skill creation guide
+skills/
+├── git-commit/        # Git commit conventions
+├── git-release/       # Release management
+├── git-team-workflow/ # Git workflow patterns
+├── go-conventions/    # Go language patterns
+├── rust-patterns/     # Rust language patterns
+├── ts-react-nextjs/   # React/Next.js patterns
+├── ts-vue-svelte/     # Vue/Svelte patterns
+├── frontend-design/   # UI/UX design
+├── api-rest-design/   # API design patterns
+├── security-best-practices/  # Security + references/
+├── docker-patterns/   # Docker + references/
+├── ci-cd-pipelines/   # CI/CD + references/
+├── kubernetes-patterns/      # K8s + references/
+├── performance-optimization/ # Performance + references/
+├── microservices-patterns/   # Microservices + references/
+├── observability-monitoring/ # Observability + references/
+├── postgresql-patterns/      # PostgreSQL patterns
+├── sqlserver-patterns/       # SQL Server patterns
+├── mongodb-patterns/         # MongoDB patterns
+├── testing-strategies/       # Testing patterns
+├── feature-development/      # Feature development
+├── bug-fixing/               # Bug fixing
+├── refactoring-safely/       # Safe refactoring
+├── code-documentation/       # Documentation
+├── skill-creator/            # Skill creation guide
+├── context7/                 # Context7 documentation lookup
+└── task-management/          # Task management CLI
 ```
+
+### Subagent Architecture
+
+Subagent definitions are organized under `agent/subagents/` by purpose:
+
+- `core/` - Context discovery (ContextScout), external docs (ExternalScout), task planning (TaskManager)
+- `code/` - Coding (CoderAgent), review (CodeReviewer), testing (TestEngineer), build validation (BuildAgent)
+- `development/` - Frontend and DevOps specialists
+
+This structure enables targeted delegation for implementation, review, testing, and documentation tasks.
+
+### Command System
+
+Built-in slash commands under `command/` and `commands/`:
+
+- **Context management**: `/context`, `/add-context`
+- **Validation**: `/validate-repo`, `/test`
+- **Workflows**: `/optimize`, `/clean`, `/commit`
+
+### Context System
+
+The `context/` directory contains reusable standards and project guidance:
+
+- `core/standards/` - Code quality, documentation, testing rules
+- `core/workflows/` - Delegation and execution workflows
+- `project-intelligence/` - Project-specific conventions
+- `openagents-repo/` - Repository-specific operational guidance
 
 ### Progressive Disclosure
 
@@ -283,6 +324,13 @@ Your `opencode.json` should include:
 
 This enables all skills by default, denies internal skills, and asks for experimental ones.
 
+## 🔐 Security Notes
+
+- Secrets are loaded from environment variables (see `.env.example`)
+- Never commit `.env` files — they are excluded via `.gitignore`
+- MCP/API keys should use the `{env:VAR_NAME}` syntax in configuration files
+- Run `cp .env.example .env` and add your keys before using MCP integrations
+
 ## 🤝 Contributing
 
 Contributions are welcome! Please follow these guidelines:
@@ -306,6 +354,7 @@ All skills in this collection are licensed under the MIT License. See individual
 - [AGENTS.md](./AGENTS.md) - Complete agent interaction standards
 - [Context7 MCP](https://mcp.context7.com/) - Documentation lookup service
 - [Skill Creator Guide](skills/skill-creator/SKILL.md) - Creating custom skills
+- [ENV_SETUP.md](./ENV_SETUP.md) - Security setup for API keys
 
 ---
 
