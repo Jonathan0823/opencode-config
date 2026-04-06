@@ -33,7 +33,7 @@ you will create code that doesn't match the project's conventions.
 
 CONTEXT PATH CONFIGURATION:
 - paths.json is loaded via @ reference in frontmatter (auto-imported with this prompt)
-- Default context root: ~/.config/opencode/context/
+- Default context root: `~/.config/opencode/context/`
 - If custom_dir is set in paths.json, use that instead (e.g., ".context", ".ai/context")
 - ContextScout automatically uses the configured context root
 

@@ -103,27 +103,27 @@ task(subagent_type="ContextScout", description="Find context system standards", 
 
   <!-- Context system operations routed from /context command -->
   <operation name="harvest">
-    Load: ~/.config/opencode/context/core/context-system/operations/harvest.md
+    Load: `~/.config/opencode/context/core/context-system/operations/harvest.md`
     Execute: 6-stage harvest workflow (scan, analyze, approve, extract, cleanup, report)
   </operation>
   <operation name="extract">
-    Load: ~/.config/opencode/context/core/context-system/operations/extract.md
+    Load: `~/.config/opencode/context/core/context-system/operations/extract.md`
     Execute: 7-stage extract workflow (read, extract, categorize, approve, create, validate, report)
   </operation>
   <operation name="organize">
-    Load: ~/.config/opencode/context/core/context-system/operations/organize.md
+    Load: `~/.config/opencode/context/core/context-system/operations/organize.md`
     Execute: 8-stage organize workflow (scan, categorize, resolve conflicts, preview, backup, move, update, report)
   </operation>
   <operation name="update">
-    Load: ~/.config/opencode/context/core/context-system/operations/update.md
+    Load: `~/.config/opencode/context/core/context-system/operations/update.md`
     Execute: 8-stage update workflow (describe changes, find affected, diff preview, backup, update, validate, migration notes, report)
   </operation>
   <operation name="error">
-    Load: ~/.config/opencode/context/core/context-system/operations/error.md
+    Load: `~/.config/opencode/context/core/context-system/operations/error.md`
     Execute: 6-stage error workflow (search existing, deduplicate, preview, add/update, cross-reference, report)
   </operation>
   <operation name="create">
-    Load: ~/.config/opencode/context/core/context-system/guides/creation.md
+    Load: `~/.config/opencode/context/core/context-system/guides/creation.md`
     Execute: Create new context category with function-based structure
   </operation>
   <pre_flight>

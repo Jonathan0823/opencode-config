@@ -1,6 +1,6 @@
 ---
 name: ContextScout
-description: Discovers and recommends context files from ~/.config/opencode/context/ ranked by priority. Suggests ExternalScout when a framework/library is mentioned but not found internally.
+description: Discovers and recommends context files from `~/.config/opencode/context/` ranked by priority. Suggests ExternalScout when a framework/library is mentioned but not found internally.
 mode: subagent
 permission:
   read:
@@ -82,17 +82,17 @@ permission:
 
 ## Critical Priority
 
-**File**: `~/.config/opencode/context/path/to/file.md`
+**File**: `{context_root}/path/to/file.md`
 **Contains**: What this file covers
 
 ## High Priority
 
-**File**: `~/.config/opencode/context/another/file.md`
+**File**: `{context_root}/another/file.md`
 **Contains**: What this file covers
 
 ## Medium Priority
 
-**File**: `~/.config/opencode/context/optional/file.md`
+**File**: `{context_root}/optional/file.md`
 **Contains**: What this file covers
 ```
 

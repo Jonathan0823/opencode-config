@@ -45,11 +45,11 @@ WHY THIS MATTERS:
 - Delegation without workflows/task-delegation-basics.md → Wrong context passed to subagents
 
 Required context files:
-- Code tasks → ~/.config/opencode/context/core/standards/code-quality.md
-- Docs tasks → ~/.config/opencode/context/core/standards/documentation.md  
-- Tests tasks → ~/.config/opencode/context/core/standards/test-coverage.md
-- Review tasks → ~/.config/opencode/context/core/workflows/code-review.md
-- Delegation → ~/.config/opencode/context/core/workflows/task-delegation-basics.md
+- Code tasks → `~/.config/opencode/context/core/standards/code-quality.md`
+- Docs tasks → `~/.config/opencode/context/core/standards/documentation.md`
+- Tests tasks → `~/.config/opencode/context/core/standards/test-coverage.md`
+- Review tasks → `~/.config/opencode/context/core/workflows/code-review.md`
+- Delegation → `~/.config/opencode/context/core/workflows/task-delegation-basics.md`
 
 CONSEQUENCE OF SKIPPING: Work that doesn't match project standards = wasted effort + rework
 </critical_context_requirement>
@@ -143,7 +143,7 @@ task(
     
     Edge case - "Context loading vs minimal overhead":
     - @critical_context_requirement (Tier 1) ALWAYS overrides minimal overhead (Tier 3)
-    - Context files (~/.config/opencode/context/core/*.md) MANDATORY, not optional
+    - Context files (`~/.config/opencode/context/core/*.md`) MANDATORY, not optional
     - Session files (.tmp/sessions/*) created only when needed
     - Ex: "Write docs" → MUST load standards/documentation.md (Tier 1 override)
     - Ex: "Write docs" → Skip ctx for efficiency (VIOLATION)
@@ -244,11 +244,11 @@ task(
       
       1. Classify task: docs|code|tests|delegate|review|patterns|bash-only
       2. Map to context file:
-         - code (write/edit code) → Read ~/.config/opencode/context/core/standards/code-quality.md NOW
-         - docs (write/edit docs) → Read ~/.config/opencode/context/core/standards/documentation.md NOW
-         - tests (write/edit tests) → Read ~/.config/opencode/context/core/standards/test-coverage.md NOW
-         - review (code review) → Read ~/.config/opencode/context/core/workflows/code-review.md NOW
-         - delegate (using task tool) → Read ~/.config/opencode/context/core/workflows/task-delegation-basics.md NOW
+         - code (write/edit code) → Read `~/.config/opencode/context/core/standards/code-quality.md` NOW
+         - docs (write/edit docs) → Read `~/.config/opencode/context/core/standards/documentation.md` NOW
+         - tests (write/edit tests) → Read `~/.config/opencode/context/core/standards/test-coverage.md` NOW
+         - review (code review) → Read `~/.config/opencode/context/core/workflows/code-review.md` NOW
+         - delegate (using task tool) → Read `~/.config/opencode/context/core/workflows/task-delegation-basics.md` NOW
          - bash-only → No context needed, proceed to 3.2
          
          NOTE: Load all files discovered by ContextScout in Stage 1.5 if not already loaded.
@@ -258,11 +258,11 @@ task(
          IF direct: Use Read tool to load context file, then proceed to 3.2
       
       <automatic_loading>
-        IF code task → ~/.config/opencode/context/core/standards/code-quality.md (MANDATORY)
-        IF docs task → ~/.config/opencode/context/core/standards/documentation.md (MANDATORY)
-        IF tests task → ~/.config/opencode/context/core/standards/test-coverage.md (MANDATORY)
-        IF review task → ~/.config/opencode/context/core/workflows/code-review.md (MANDATORY)
-        IF delegation → ~/.config/opencode/context/core/workflows/task-delegation-basics.md (MANDATORY)
+        IF code task → `~/.config/opencode/context/core/standards/code-quality.md` (MANDATORY)
+        IF docs task → `~/.config/opencode/context/core/standards/documentation.md` (MANDATORY)
+        IF tests task → `~/.config/opencode/context/core/standards/test-coverage.md` (MANDATORY)
+        IF review task → `~/.config/opencode/context/core/workflows/code-review.md` (MANDATORY)
+        IF delegation → `~/.config/opencode/context/core/workflows/task-delegation-basics.md` (MANDATORY)
         IF bash-only → No context required
         
         WHEN DELEGATING TO SUBAGENTS:
