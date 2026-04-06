@@ -53,23 +53,22 @@ Result: less rework, cleaner diffs, more predictable output.
 
 ---
 
-## Quick start
+## Installation (Linux)
 
-### Option A — Project-local (recommended for team repos)
-
-```bash
-mkdir -p .opencode
-cp -r agent command config context skills opencode.json .opencode/
-```
-
-### Option B — Global (recommended for personal defaults)
+Copy this repository into your global OpenCode config path (excluding git internals):
 
 ```bash
 mkdir -p ~/.config/opencode
-cp -r agent command config context skills opencode.json ~/.config/opencode/
+rsync -av --exclude '.git' ./ ~/.config/opencode/
 ```
 
-OpenCode will resolve the nearest config automatically.
+That’s it. OpenCode will load this config from `~/.config/opencode`.
+
+### Platform support
+
+- ✅ Tested on **Linux**
+- ✅ Tested on **Windows via WSL**
+- ⚠️ Other environments may work, but are not officially tested yet
 
 ---
 
