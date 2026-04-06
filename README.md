@@ -1,6 +1,8 @@
 # OpenCode AI Configuration Repository
 
-This repository is the configuration source for **OpenAgents Control (OAC)**, providing specialized subagents for code review, research, refactoring, documentation, and feature implementation, plus **28 specialized skills** covering development workflows, security, DevOps, databases, and best practices.
+This repository is a portable configuration source for OpenCode, providing specialized subagents for code review, research, refactoring, documentation, and feature implementation, plus **28 specialized skills** covering development workflows, security, DevOps, databases, and best practices.
+
+> Inspired by [OpenAgents Control (OAC)](https://github.com/darrenhinde/OpenAgentsControl) by Darren Hinde.
 
 ## Features
 
@@ -57,6 +59,25 @@ This repository is the configuration source for **OpenAgents Control (OAC)**, pr
 - **OpenCode AI CLI** must be installed separately. See [OpenCode AI installation guide](https://opencode.ai/docs/installation)
 - *(Optional)* **Context7 API key** if you want to use the MCP documentation lookup integration
 
+### Step 0: Clone This Repo
+
+Start by cloning this repository. It already contains the agent, command, context, and skill structure.
+
+```bash
+git clone <this-repo-url>
+cd <repo-name>
+```
+
+### Step 1: Use This Repo as the Config Source
+
+After cloning, this repository becomes the source of truth for agents, commands, context, skills, and runtime config.
+
+- `agent/`
+- `command/`
+- `context/`
+- `skills/`
+- `opencode.json`
+
 ### Setup
 
 #### Option 1: Project-Specific Configuration
@@ -89,6 +110,8 @@ OpenCode AI discovers configurations in this order:
 1. **Current directory** (project-specific)
 2. **Parent directories** (walking up)
 3. **`~/.config/opencode/`** (global)
+
+If you install OAC globally, this repo's files should live under that config root. If you use a project-local setup, keep the same folder structure inside your project.
 
 ```bash
 # Run OpenCode AI - config loads automatically
@@ -347,6 +370,10 @@ For detailed contribution guidelines, see [skill-creator](skills/skill-creator/S
 ## 📄 License
 
 All skills in this collection are licensed under the MIT License. See individual `SKILL.md` files for specific licensing details.
+
+## Attribution
+
+OpenAgents Control (OAC) and its installer/workflow are created by Darren Hinde. This repository adapts that foundation into a portable configuration source for OpenCode users.
 
 ## 🔗 Related Resources
 
