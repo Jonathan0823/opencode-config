@@ -2,58 +2,167 @@
 
 Control your AI patterns. Get repeatable results.
 
-This repo is a ready-to-use OpenCode config built around the OpenAgents Control workflow: agents that learn your patterns, load only the context they need, and pause for approval before execution.
+This repository is a production-oriented OpenCode configuration that applies the OpenAgents Control workflow: context-aware planning, approval gates, modular delegation, and consistent implementation standards.
 
-## Why it helps
+If you’ve ever had AI generate code that *works* but doesn’t match your architecture, naming, or quality bar, this config is built to solve exactly that.
 
-- **Pattern control** — teach agents your standards once, reuse them everywhere
-- **Approval gates** — review plans before anything changes
-- **MVI context loading** — load only what matters, when it matters
-- **Editable agents** — prompts are markdown, not baked-in black boxes
-- **Team-ready** — share the same config and context across your team
-- **Live docs** — use Context7 for up-to-date library and framework docs
+---
 
-## What’s included
+## Why use this config
 
-- **Agents** — OpenAgent, OpenCoder, and specialist subagents
-- **Commands** — context, validation, commit, cleanup, and workflow helpers
-- **Context** — standards, workflows, and project intelligence
-- **Skills** — reusable workflows for frontend, backend, security, DevOps, docs, and more
-- **Runtime config** — OpenCode permissions and MCP settings
+### 1) Your patterns become default behavior
+Agents are designed to load project context before execution, so generated output follows your conventions instead of generic defaults.
 
-## Example use cases
+### 2) Approval-first workflow
+Plans are proposed before execution. You stay in control of edits, commands, and implementation scope.
 
-- Generate code that matches your API and component conventions
-- Review a change for security, maintainability, and consistency
-- Pull current docs for an external library before implementing
-- Turn project patterns into shared context your team can reuse
+### 3) MVI-style context loading
+Minimal Viable Information (MVI) keeps context focused and efficient: load what is needed, avoid unnecessary prompt bloat.
 
-## How to use it
+### 4) Team consistency by design
+The context and command system makes it easier for teams to produce consistent code and documentation across contributors.
 
-- **Project-local**: place the config in `.opencode/`
-- **Global**: place the config in `~/.config/opencode/`
-- OpenCode will load the nearest config automatically
+### 5) Live external docs when needed
+External library lookups are supported via Context7 workflows, helping avoid outdated patterns.
 
-## Repository layout
+---
+
+## What you get
+
+- **Core agents** for general execution and coding workflows
+- **Specialized subagents** for planning, implementation, testing, review, and documentation
+- **Command system** for structured, repeatable workflows
+- **Context system** for standards, workflows, and project intelligence
+- **Skill library** across frontend, backend, infra, security, testing, and documentation
+- **Runtime config** through `opencode.json`
+
+---
+
+## How this helps in practice
+
+With a typical generic setup:
+- AI generates code fast
+- You spend time reshaping it to fit project standards
+
+With this config:
+- Agents discover relevant context first
+- They propose an approach with explicit checkpoints
+- They execute incrementally with validation and approval
+
+Result: less rework, cleaner diffs, more predictable output.
+
+---
+
+## Quick start
+
+### Option A — Project-local (recommended for team repos)
+
+```bash
+mkdir -p .opencode
+cp -r agent command config context skills opencode.json .opencode/
+```
+
+### Option B — Global (recommended for personal defaults)
+
+```bash
+mkdir -p ~/.config/opencode
+cp -r agent command config context skills opencode.json ~/.config/opencode/
+```
+
+OpenCode will resolve the nearest config automatically.
+
+---
+
+## Configuration resolution (important)
+
+OpenCode configuration is loaded by proximity:
+
+1. Project-local (`.opencode/`)
+2. Parent directories
+3. Global (`~/.config/opencode/`)
+
+**Practical recommendation**:
+- Use **project-local** for shared team behavior
+- Use **global** for your personal defaults
+
+---
+
+## Example prompts
 
 ```text
-agent/
-command/
-config/
-context/
-skills/
-opencode.json
+@implementer build this endpoint using our API conventions
+@code-reviewer review this diff for security and maintainability risks
+@researcher compare library options for this feature
+@explainer summarize this module and generate docs
+```
+
+---
+
+## Core workflow model
+
+This config emphasizes a structured lifecycle:
+
+1. **Discover** context and constraints
+2. **Propose** a plan
+3. **Approve** before execution
+4. **Implement** incrementally
+5. **Validate** and hand off
+
+This is intentionally optimized for reliability and maintainability over "fire-and-forget" automation.
+
+---
+
+## Repo structure
+
+```text
+agent/          # Core agents and specialized subagents
+command/        # Slash commands and workflow entrypoints
+config/         # Metadata and config support files
+context/        # Standards, workflows, project intelligence
+skills/         # Reusable capability modules
+opencode.json   # Runtime permissions/MCP configuration
 README.md
 ```
 
-## Quick examples
+---
 
-```text
-@code-reviewer review this change for security issues
-@researcher find the current docs for this library
-@implementer build this feature using our patterns
-```
+## Customization guide
+
+You can safely adapt this config to your team:
+
+- Update context files in `context/project-intelligence/`
+- Tune agent behavior in `agent/`
+- Add workflow commands under `command/`
+- Extend capabilities through `skills/`
+
+Tip: keep edits incremental and tested. If behavior changes significantly, document it in README or context notes.
+
+---
+
+## FAQ
+
+### Will this replace my existing config?
+If you copy these files into an existing config location, overlapping files will be replaced.
+
+### Should I use local or global config?
+Use local for team/project consistency. Use global for personal defaults across repositories.
+
+### Do I need every skill enabled?
+No. You can keep only the skills and commands your team actively uses.
+
+### Can I still use upstream OAC resources?
+Yes. This repo is compatible with OAC workflows and patterns and can be evolved alongside upstream guidance.
+
+---
 
 ## Attribution
 
 Powered by [OpenAgents Control (OAC)](https://github.com/darrenhinde/OpenAgentsControl) by Darren Hinde.
+
+---
+
+## Related resources
+
+- [OpenAgents Control Repository](https://github.com/darrenhinde/OpenAgentsControl)
+- [OpenCode Documentation](https://opencode.ai/docs)
+- [AGENTS.md](./AGENTS.md)
