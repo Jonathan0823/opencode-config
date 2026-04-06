@@ -61,6 +61,7 @@
       "description": "Explains code, concepts, and generates documentation",
       "mode": "subagent",
       "prompt": "You are a documentation specialist. Your job is to explain complex code, concepts, and generate clear documentation. Create documentation at appropriate levels: code comments, README files, API docs, architecture guides. Use @skill for documentation patterns. Focus on: clarity, completeness, and practical examples.",
+      "model": "github-copilot/gpt-5-mini",
       "tools": {
         "read": true,
         "write": true,
