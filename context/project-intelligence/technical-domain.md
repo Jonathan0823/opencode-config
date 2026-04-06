@@ -1,55 +1,108 @@
-<!-- Context: project-intelligence/technical | Priority: critical | Version: 1.0 | Updated: 2026-02-25 -->
+<!-- Context: project-intelligence/technical | Priority: high | Version: 1.0 | Updated: 2025-01-12 -->
 
 # Technical Domain
 
-**Purpose**: Tech stack, architecture, development patterns for this project.
-**Last Updated**: 2026-02-25
+> Document the technical foundation, architecture, and key decisions.
 
 ## Quick Reference
-**Update Triggers**: Tech stack changes | New patterns | Architecture decisions
-**Audience**: Developers, AI agents
+
+- **Purpose**: Understand how the project works technically
+- **Update When**: New features, refactoring, tech stack changes
+- **Audience**: Developers, DevOps, technical stakeholders
 
 ## Primary Stack
+
 | Layer | Technology | Version | Rationale |
 |-------|-----------|---------|-----------|
-| Framework | Next.js | Latest | Frontend framework for React applications |
-| Language | TypeScript | Latest | Type-safe JavaScript for robust applications |
-| Backend | Go | Latest | High-performance backend services |
-| Backend | Rust | Latest | Systems programming for performance and safety |
-| Database | PostgreSQL | Latest | Robust relational database |
-| Database | SQL Server | Latest | Microsoft's relational database management system |
+| Language | [e.g., TypeScript] | [Version] | [Why this language] |
+| Framework | [e.g., Node.js] | [Version] | [Why this framework] |
+| Database | [e.g., PostgreSQL] | [Version] | [Why this database] |
+| Infrastructure | [e.g., AWS, Vercel] | [N/A] | [Why this infra] |
+| Key Libraries | [List important ones] | [Versions] | [Why each matters] |
 
-## Code Patterns
-### API Endpoint
-*(Skipped by user - no specific API pattern provided)*
+## Architecture Pattern
 
-### Component
-*(Skipped by user - no specific component pattern provided)*
+```
+Type: [Monolith | Microservices | Serverless | Agent-based | Hybrid]
+Pattern: [Brief description]
+Diagram: [Link to architecture diagram if exists]
+```
 
-## Naming Conventions
-| Type | Convention | Example |
-|------|-----------|---------|
-| Files | kebab-case | user-profile.tsx |
-| Components | PascalCase | UserProfile |
-| Functions | camelCase | getUserProfile |
-| Database | snake_case | user_profiles |
+### Why This Architecture?
 
-## Code Standards
-- TypeScript strict mode
-- Prefer server components for SEO websites
-- Go clean architecture
-- Domain driven structuring
-- Sometime use taskfile for running scripts
+[Explain the business and technical reasons for this architecture choice. What problem does this architecture solve? What were alternatives considered?]
 
-## Security Requirements
-- Validate all user input
-- Use parameterized queries
-- Sanitize before rendering
+## Project Structure
 
-## 📂 Codebase References
-**Implementation**: `src/app/`, `src/components/`, `src/lib/`, `src/db/`, `internal/`, `pkg/` - Common directories for Next.js, Go, and Rust projects.
-**Config**: `package.json`, `tsconfig.json`, `go.mod`, `Cargo.toml`
+```
+[Project Root]
+├── src/                    # Source code
+├── tests/                  # Test files
+├── docs/                   # Documentation
+├── scripts/                # Build/deploy scripts
+└── [Other key directories]
+```
+
+**Key Directories**:
+- `src/` - Contains all application logic organized by [module/feature/domain]
+- `tests/` - [How tests are organized]
+- `docs/` - [What documentation lives here]
+
+## Key Technical Decisions
+
+| Decision | Rationale | Impact |
+|----------|-----------|--------|
+| [Decision 1] | [Why this choice] | [What it enables] |
+| [Decision 2] | [Why this choice] | [What it enables] |
+
+See `decisions-log.md` for full decision history with alternatives.
+
+## Integration Points
+
+| System | Purpose | Protocol | Direction |
+|--------|---------|----------|-----------|
+| [API 1] | [What it does] | [REST/GraphQL/gRPC] | [Inbound/Outbound] |
+| [Database] | [What it stores] | [PostgreSQL/Mongo/etc] | [Internal] |
+| [Service] | [What it provides] | [HTTP/gRPC] | [Outbound] |
+
+## Technical Constraints
+
+| Constraint | Origin | Impact |
+|------------|--------|--------|
+| [Legacy systems] | [Business/Tech] | [What limitation it creates] |
+| [Compliance] | [Regulation] | [What must be followed] |
+| [Performance] | [SLAs] | [What must be met] |
+
+## Development Environment
+
+```
+Setup: [Quick setup command or link]
+Requirements: [What developers need installed]
+Local Dev: [How to run locally]
+Testing: [How to run tests]
+```
+
+## Deployment
+
+```
+Environment: [Production/Staging/Development]
+Platform: [Where it deploys]
+CI/CD: [Pipeline used]
+Monitoring: [Tools for observability]
+```
+
+## Onboarding Checklist
+
+- [ ] Know the primary tech stack
+- [ ] Understand the architecture pattern and why it was chosen
+- [ ] Know the key project directories and their purpose
+- [ ] Understand major technical decisions and rationale
+- [ ] Know integration points and dependencies
+- [ ] Be able to set up local development environment
+- [ ] Know how to run tests and deploy
 
 ## Related Files
-- Business Domain (example: business-domain.md)
-- Decisions Log (example: decisions-log.md)
+
+- `business-domain.md` - Why this technical foundation exists
+- `business-tech-bridge.md` - How business needs map to technical solutions
+- `decisions-log.md` - Full decision history with context

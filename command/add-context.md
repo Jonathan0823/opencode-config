@@ -19,37 +19,51 @@ dependencies:
 <task>6-question wizard → technical-domain.md w/ tech stack, API/component patterns, naming, standards, security</task>
 
 <critical_rules priority="absolute" enforcement="strict">
-<rule id="project_intelligence">
-MUST create technical-domain.md in project-intelligence/ dir (NOT single project-context.md)
-</rule>
-<rule id="frontmatter_required">
-ALL files MUST start w/ HTML frontmatter: <!-- Context: {category}/{function} | Priority: {level} | Version: X.Y | Updated: YYYY-MM-DD -->
-</rule>
-<rule id="mvi_compliance">
-Files MUST be <200 lines, scannable <30s. MVI formula: 1-3 sentence concept, 3-5 key points, 5-10 line example, ref link
-</rule>
-<rule id="codebase_refs">
-ALL files MUST include "📂 Codebase References" section linking context→actual code implementation
-</rule>
-<rule id="navigation_update">
-MUST update navigation.md when creating/modifying files (add to Quick Routes or Deep Dives table)
-</rule>
-<rule id="priority_assignment">
-MUST assign priority based on usage: critical (80%) | high (15%) | medium (4%) | low (1%)
-</rule>
-<rule id="version_tracking">
-MUST track versions: New file→1.0 | Content update→MINOR (1.1, 1.2) | Structure change→MAJOR (2.0, 3.0)
-</rule>
+  <rule id="project_intelligence">
+    MUST create technical-domain.md in project-intelligence/ dir (NOT single project-context.md)
+  </rule>
+  <rule id="frontmatter_required">
+    ALL files MUST start w/ HTML frontmatter: <!-- Context: {category}/{function} | Priority: {level} | Version: X.Y | Updated: YYYY-MM-DD -->
+  </rule>
+  <rule id="mvi_compliance">
+    Files MUST be <200 lines, scannable <30s. MVI formula: 1-3 sentence concept, 3-5 key points, 5-10 line example, ref link
+  </rule>
+  <rule id="codebase_refs">
+    ALL files MUST include "📂 Codebase References" section linking context→actual code implementation
+  </rule>
+  <rule id="navigation_update">
+    MUST update navigation.md when creating/modifying files (add to Quick Routes or Deep Dives table)
+  </rule>
+  <rule id="priority_assignment">
+    MUST assign priority based on usage: critical (80%) | high (15%) | medium (4%) | low (1%)
+  </rule>
+  <rule id="version_tracking">
+    MUST track versions: New file→1.0 | Content update→MINOR (1.1, 1.2) | Structure change→MAJOR (2.0, 3.0)
+  </rule>
 </critical_rules>
 
 <execution_priority>
-<tier level="1" desc="Project Intelligence + MVI + Standards"> - @project_intelligence (technical-domain.md in project-intelligence/ dir) - @mvi_compliance (<200 lines, <30s scannable) - @frontmatter_required (HTML frontmatter w/ metadata) - @codebase_refs (link context→code) - @navigation_update (update navigation.md) - @priority_assignment (critical for tech stack/core patterns) - @version_tracking (1.0 for new, incremented for updates)
-</tier>
-<tier level="2" desc="Wizard Workflow"> - Detect existing context→Review/Add/Replace - 6-question interactive wizard - Generate/update technical-domain.md - Validation w/ MVI checklist
-</tier>
-<tier level="3" desc="User Experience"> - Clear formatting w/ ━ dividers - Helpful examples - Next steps guidance
-</tier>
-<conflict_resolution>Tier 1 always overrides Tier 2/3 - standards are non-negotiable</conflict_resolution>
+  <tier level="1" desc="Project Intelligence + MVI + Standards">
+    - @project_intelligence (technical-domain.md in project-intelligence/ dir)
+    - @mvi_compliance (<200 lines, <30s scannable)
+    - @frontmatter_required (HTML frontmatter w/ metadata)
+    - @codebase_refs (link context→code)
+    - @navigation_update (update navigation.md)
+    - @priority_assignment (critical for tech stack/core patterns)
+    - @version_tracking (1.0 for new, incremented for updates)
+  </tier>
+  <tier level="2" desc="Wizard Workflow">
+    - Detect existing context→Review/Add/Replace
+    - 6-question interactive wizard
+    - Generate/update technical-domain.md
+    - Validation w/ MVI checklist
+  </tier>
+  <tier level="3" desc="User Experience">
+    - Clear formatting w/ ━ dividers
+    - Helpful examples
+    - Next steps guidance
+  </tier>
+  <conflict_resolution>Tier 1 always overrides Tier 2/3 - standards are non-negotiable</conflict_resolution>
 </execution_priority>
 
 ---
@@ -85,8 +99,7 @@ Help users add project patterns using Project Intelligence standard. **Easiest w
 **Run**: `/add-context`
 
 **What happens**:
-
-1. Saves to `./.opencode/context/project-intelligence/` in your project (always local)
+1. Saves to `.opencode/context/project-intelligence/` in your project (always local)
 2. Checks for external context files in `.tmp/` (if found, offers to extract)
 3. Checks for existing project intelligence
 4. Asks 6 questions (~5 min) OR reviews existing patterns
@@ -95,7 +108,6 @@ Help users add project patterns using Project Intelligence standard. **Easiest w
 7. Agents now use YOUR patterns
 
 **6 Questions** (~5 min):
-
 1. Tech stack?
 2. API endpoint example?
 3. Component example?
@@ -106,7 +118,6 @@ Help users add project patterns using Project Intelligence standard. **Easiest w
 **Done!** Agents now use YOUR patterns.
 
 **Management Options**:
-
 - Update patterns: `/add-context --update`
 - Manage external files: `/context harvest` (extract, organize, clean)
 - Harvest to permanent: `/context harvest`
@@ -124,7 +135,6 @@ Determine where project intelligence files should be saved. This runs BEFORE any
 **Override**: `--global` flag saves to `~/.config/opencode/context/project-intelligence/` instead.
 
 **Resolution:**
-
 1. If `--global` flag → `$CONTEXT_DIR = ~/.config/opencode/context/project-intelligence/`
 2. Otherwise → `$CONTEXT_DIR = .opencode/context/project-intelligence/` (always local)
 
@@ -139,7 +149,6 @@ Determine where project intelligence files should be saved. This runs BEFORE any
 Check: `.tmp/` directory for external context files (e.g., `.tmp/external-context.md`, `.tmp/context-*.md`)
 
 **If external files found**:
-
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Found external context files in .tmp/
@@ -160,12 +169,10 @@ Choose [1/2]: _
 ```
 
 **If option 1 (Continue)**:
-
 - Proceed to Stage 1 (detect existing project intelligence)
 - External files remain in .tmp/ for later processing
 
 **If option 2 (Manage external files)**:
-
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Manage External Context Files
@@ -193,10 +200,9 @@ Ready to harvest? [y/n]: _
 
 ### Stage 1: Detect Existing Context
 
-Check: `$CONTEXT_DIR` (set in Stage 0.5 — either `.opencode/context/project-intelligence/` (local) or `~/.config/opencode/context/project-intelligence/` (global))
+Check: `$CONTEXT_DIR` (set in Stage 0.5 — either `~/.config/opencode/context/project-intelligence/` or `~/.config/opencode/context/project-intelligence/`)
 
 **If exists**:
-
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Found existing project intelligence!
@@ -227,7 +233,6 @@ Choose [1/2/3/4]: _
 ```
 
 **If user chooses 3 (Replace all):**
-
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Replace All: Preview
@@ -249,7 +254,6 @@ Proceed? [y/n]: _
 ```
 
 **If not exists**:
-
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 No project intelligence found. Let's create it!
@@ -275,7 +279,6 @@ Ready? [y/n]: _
 For each pattern, show current→ask Keep/Update/Remove:
 
 #### Pattern 1: Tech Stack
-
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Pattern 1/6: Tech Stack
@@ -294,8 +297,7 @@ If '2': New tech stack: _
 ```
 
 #### Pattern 2: API Pattern
-
-````
+```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Pattern 2/6: API Pattern
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -311,13 +313,12 @@ export async function POST(request: Request) {
     return Response.json({ error: error.message }, { status: 400 })
   }
 }
-````
+```
 
 Options: 1. Keep | 2. Update | 3. Remove
-Choose [1/2/3]: \_
+Choose [1/2/3]: _
 
-If '2': Paste new API pattern: \_
-
+If '2': Paste new API pattern: _
 ```
 
 #### Pattern 3-6: Component, Naming, Standards, Security
@@ -325,24 +326,22 @@ If '2': Paste new API pattern: \_
 
 **After reviewing all**:
 ```
-
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Review Summary
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Changes:
-✓ Tech Stack: Updated (Next.js 14 → Next.js 15)
-✓ API: Kept
-✓ Component: Updated (new pattern)
-✓ Naming: Kept
-✓ Standards: Updated (+2 new)
-✓ Security: Kept
+  ✓ Tech Stack: Updated (Next.js 14 → Next.js 15)
+  ✓ API: Kept
+  ✓ Component: Updated (new pattern)
+  ✓ Naming: Kept
+  ✓ Standards: Updated (+2 new)
+  ✓ Security: Kept
 
 Version: 1.2 → 1.3 (content update per @version_tracking)
 Updated: 2026-01-29
 
-Proceed? [y/n]: \_
-
+Proceed? [y/n]: _
 ```
 
 ---
@@ -351,27 +350,23 @@ Proceed? [y/n]: \_
 
 #### Q1: Tech Stack
 ```
-
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Q 1/6: What's your tech stack?
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Examples:
+  1. Next.js + TypeScript + PostgreSQL + Tailwind
+  2. React + Python + MongoDB + Material-UI
+  3. Vue + Go + MySQL + Bootstrap
+  4. Other (describe)
 
-1. Next.js + TypeScript + PostgreSQL + Tailwind
-2. React + Python + MongoDB + Material-UI
-3. Vue + Go + MySQL + Bootstrap
-4. Other (describe)
-
-Your tech stack: \_
-
+Your tech stack: _
 ```
 
 **Capture**: Framework, Language, Database, Styling
 
 #### Q2: API Pattern
 ```
-
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Q 2/6: API endpoint example?
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -379,24 +374,21 @@ Q 2/6: API endpoint example?
 Paste API endpoint from YOUR project (matches your API style).
 
 Example (Next.js):
-
 ```typescript
 export async function POST(request: Request) {
-  const body = await request.json();
-  const validated = schema.parse(body);
-  return Response.json({ success: true });
+  const body = await request.json()
+  const validated = schema.parse(body)
+  return Response.json({ success: true })
 }
 ```
 
-Your API pattern (paste or 'skip'): \_
-
+Your API pattern (paste or 'skip'): _
 ```
 
 **Capture**: API endpoint, error handling, validation, response format
 
 #### Q3: Component Pattern
 ```
-
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Q 3/6: Component example?
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -404,7 +396,6 @@ Q 3/6: Component example?
 Paste component from YOUR project.
 
 Example (React):
-
 ```typescript
 interface UserCardProps { name: string; email: string }
 export function UserCard({ name, email }: UserCardProps) {
@@ -414,71 +405,60 @@ export function UserCard({ name, email }: UserCardProps) {
 }
 ```
 
-Your component (paste or 'skip'): \_
-
+Your component (paste or 'skip'): _
 ```
 
 **Capture**: Component structure, props pattern, styling, TypeScript
 
 #### Q4: Naming Conventions
 ```
-
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Q 4/6: Naming conventions?
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Examples:
-Files: kebab-case (user-profile.tsx)
-Components: PascalCase (UserProfile)
-Functions: camelCase (getUserProfile)
-Database: snake_case (user_profiles)
+  Files: kebab-case (user-profile.tsx)
+  Components: PascalCase (UserProfile)
+  Functions: camelCase (getUserProfile)
+  Database: snake_case (user_profiles)
 
 Your conventions:
-Files: _
-Components: _
-Functions: _
-Database: _
-
+  Files: _
+  Components: _
+  Functions: _
+  Database: _
 ```
 
 #### Q5: Code Standards
 ```
-
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Q 5/6: Code standards?
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Examples:
-
-- TypeScript strict mode
-- Validate w/ Zod
-- Use Drizzle for DB queries
-- Prefer server components
+  - TypeScript strict mode
+  - Validate w/ Zod
+  - Use Drizzle for DB queries
+  - Prefer server components
 
 Your standards (one/line, 'done' when finished):
-
-1. \_
-
+  1. _
 ```
 
 #### Q6: Security Requirements
 ```
-
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Q 6/6: Security requirements?
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Examples:
-
-- Validate all user input
-- Use parameterized queries
-- Sanitize before rendering
-- HTTPS only
+  - Validate all user input
+  - Use parameterized queries
+  - Sanitize before rendering
+  - HTTPS only
 
 Your requirements (one/line, 'done' when finished):
-
-1. \_
-
+  1. _
 ```
 
 ---
@@ -487,7 +467,6 @@ Your requirements (one/line, 'done' when finished):
 
 **Preview**:
 ```
-
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Preview: technical-domain.md
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -500,57 +479,47 @@ Preview: technical-domain.md
 **Last Updated**: 2026-01-29
 
 ## Quick Reference
-
 **Update Triggers**: Tech stack changes | New patterns | Architecture decisions
 **Audience**: Developers, AI agents
 
 ## Primary Stack
-
-| Layer     | Technology  | Version   | Rationale |
-| --------- | ----------- | --------- | --------- |
-| Framework | {framework} | {version} | {why}     |
-| Language  | {language}  | {version} | {why}     |
-| Database  | {database}  | {version} | {why}     |
-| Styling   | {styling}   | {version} | {why}     |
+| Layer | Technology | Version | Rationale |
+|-------|-----------|---------|-----------|
+| Framework | {framework} | {version} | {why} |
+| Language | {language} | {version} | {why} |
+| Database | {database} | {version} | {why} |
+| Styling | {styling} | {version} | {why} |
 
 ## Code Patterns
-
 ### API Endpoint
-
 ```{language}
 {user_api_pattern}
 ```
 
 ### Component
-
 ```{language}
 {user_component_pattern}
 ```
 
 ## Naming Conventions
-
-| Type       | Convention         | Example   |
-| ---------- | ------------------ | --------- |
-| Files      | {file_naming}      | {example} |
+| Type | Convention | Example |
+|------|-----------|---------|
+| Files | {file_naming} | {example} |
 | Components | {component_naming} | {example} |
-| Functions  | {function_naming}  | {example} |
-| Database   | {db_naming}        | {example} |
+| Functions | {function_naming} | {example} |
+| Database | {db_naming} | {example} |
 
 ## Code Standards
-
 {user_code_standards}
 
 ## Security Requirements
-
 {user_security_requirements}
 
 ## 📂 Codebase References
-
 **Implementation**: `{detected_files}` - {desc}
 **Config**: package.json, tsconfig.json
 
 ## Related Files
-
 - Business Domain (example: business-domain.md)
 - Decisions Log (example: decisions-log.md)
 
@@ -561,8 +530,7 @@ Status: ✅ MVI compliant
 
 Save to: $CONTEXT_DIR/technical-domain.md
 
-Looks good? [y/n/edit]: \_
-
+Looks good? [y/n/edit]: _
 ```
 
 **Actions**:
@@ -576,7 +544,6 @@ Looks good? [y/n/edit]: \_
 
 **Validation**:
 ```
-
 Running validation...
 
 ✅ <200 lines (@mvi_compliance)
@@ -587,40 +554,35 @@ Running validation...
 ✅ Version set: 1.0 (@version_tracking)
 ✅ MVI compliant (<30s scannable)
 ✅ No duplication
-
 ```
 
 **navigation.md preview** (also created/updated):
 ```
-
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Preview: navigation.md
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 # Project Intelligence
 
-| File                | Description           | Priority |
-| ------------------- | --------------------- | -------- |
+| File | Description | Priority |
+|------|-------------|----------|
 | technical-domain.md | Tech stack & patterns | critical |
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
 ```
 
 **Full creation plan**:
 ```
-
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Files to write:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-CREATE $CONTEXT_DIR/technical-domain.md ({line_count} lines)
-CREATE $CONTEXT_DIR/navigation.md ({nav_line_count} lines)
+  CREATE  $CONTEXT_DIR/technical-domain.md ({line_count} lines)
+  CREATE  $CONTEXT_DIR/navigation.md ({nav_line_count} lines)
 
 Total: 2 files
 
-Proceed? [y/n]: \_
-
+Proceed? [y/n]: _
 ```
 
 ---
@@ -628,14 +590,13 @@ Proceed? [y/n]: \_
 ### Stage 5: Confirmation & Next Steps
 
 ```
-
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ✅ Project Intelligence created successfully!
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Files created:
-$CONTEXT_DIR/technical-domain.md
-$CONTEXT_DIR/navigation.md
+  $CONTEXT_DIR/technical-domain.md
+  $CONTEXT_DIR/navigation.md
 
 Location: $CONTEXT_DIR
 Agents now use YOUR patterns automatically!
@@ -646,9 +607,8 @@ What's next?
 
 1. Test it:
    opencode --agent OpenCoder
-
    > "Create API endpoint"
-   > (Uses YOUR pattern!)
+   (Uses YOUR pattern!)
 
 2. Review: cat $CONTEXT_DIR/technical-domain.md
 
@@ -661,9 +621,9 @@ What's next?
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 When you:
-Add library → /add-context --update
-Change patterns → /add-context --update
-Migrate tech → /add-context --update
+  Add library → /add-context --update
+  Change patterns → /add-context --update
+  Migrate tech → /add-context --update
 
 Agents stay synced!
 
@@ -672,12 +632,12 @@ Agents stay synced!
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Want the same patterns across ALL your projects?
-/add-context --global
-→ Saves to ~/.config/opencode/context/project-intelligence/
-→ Acts as fallback for projects without local context
+  /add-context --global
+  → Saves to ~/.config/opencode/context/project-intelligence/
+  → Acts as fallback for projects without local context
 
 Already have global patterns? Bring them into this project:
-/context migrate
+  /context migrate
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 📚 Learn More
@@ -686,8 +646,7 @@ Already have global patterns? Bring them into this project:
 - Project Intelligence: ~/.config/opencode/context/core/standards/project-intelligence.md
 - MVI Principles: ~/.config/opencode/context/core/context-system/standards/mvi.md
 - Context System: CONTEXT_SYSTEM_GUIDE.md
-
-````
+```
 
 ---
 
@@ -766,7 +725,7 @@ validation:
   has_frontmatter: true  # @frontmatter_required
   has_codebase_references: true  # @codebase_refs
   navigation_updated: true  # @navigation_update
-````
+```
 
 **Note**: External context file management (harvest, extract, organize) is handled by `/context harvest` command, not `/add-context`.
 
@@ -783,13 +742,11 @@ Express: `src/routes/ controllers/ models/ middleware/`
 ## Success Criteria
 
 **User Experience**:
-
 - [ ] Wizard complete <5 min
 - [ ] Next steps clear
 - [ ] Update process understood
 
 **File Quality**:
-
 - [ ] @mvi_compliance (<200 lines, <30s scannable)
 - [ ] @frontmatter_required (HTML frontmatter)
 - [ ] @codebase_refs (codebase references section)
@@ -797,7 +754,6 @@ Express: `src/routes/ controllers/ models/ middleware/`
 - [ ] @version_tracking (1.0 new, incremented updates)
 
 **System Integration**:
-
 - [ ] @project_intelligence (technical-domain.md in project-intelligence/)
 - [ ] @navigation_update (navigation.md updated)
 - [ ] Agents load & use patterns
@@ -808,7 +764,6 @@ Express: `src/routes/ controllers/ models/ middleware/`
 ## Examples
 
 ### Example 1: First Time (No Context)
-
 ```bash
 /add-context
 
@@ -821,7 +776,6 @@ Express: `src/routes/ controllers/ models/ middleware/`
 ```
 
 ### Example 2: Review & Update
-
 ```bash
 /add-context
 
@@ -833,7 +787,6 @@ Express: `src/routes/ controllers/ models/ middleware/`
 ```
 
 ### Example 3: Quick Update
-
 ```bash
 /add-context --tech-stack
 
@@ -844,7 +797,6 @@ Express: `src/routes/ controllers/ models/ middleware/`
 ```
 
 ### Example 4: External Context Files Present
-
 ```bash
 /add-context
 
@@ -871,7 +823,6 @@ Express: `src/routes/ controllers/ models/ middleware/`
 ```
 
 ### Example 5: After Harvesting External Context
-
 ```bash
 # After running: /context harvest
 
@@ -888,7 +839,6 @@ Express: `src/routes/ controllers/ models/ middleware/`
 ## Error Handling
 
 **Invalid Input**:
-
 ```
 ⚠️ Invalid input
 Expected: Tech stack description
@@ -898,7 +848,6 @@ Example: Next.js + TypeScript + PostgreSQL + Tailwind
 ```
 
 **File Too Large**:
-
 ```
 ⚠️ Exceeds 200 lines (@mvi_compliance)
 Current: 245 | Limit: 200
@@ -907,7 +856,6 @@ Simplify patterns or split into multiple files.
 ```
 
 **Invalid Syntax**:
-
 ```
 ⚠️ Invalid code syntax in API pattern
 Error: Unexpected token line 3
@@ -938,7 +886,7 @@ A: `cat .opencode/context/project-intelligence/technical-domain.md` (local) or `
 A: Yes! Create in your project-intelligence directory. Agents load all.
 
 **Q: Remove pattern?**
-A: Edit directly: `nano .opencode/context/project-intelligence/technical-domain.md`
+A: Edit directly: `nano ~/.config/opencode/context/project-intelligence/technical-domain.md`
 
 **Q: Share w/ team?**
 A: Yes! Use local install (`.opencode/context/project-intelligence/`) and commit to repo. Team members get your patterns automatically.

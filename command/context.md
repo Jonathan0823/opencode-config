@@ -130,7 +130,7 @@ When invoked without arguments: `/context`
 ### Migration
 
 **`/context migrate`**
-- Copy project-intelligence from global (`~/.config/opencode/context/`) to local (`~/.config/opencode/context/`)
+- Copy project-intelligence from global (`~/.config/opencode/context/`) to local (`.opencode/context/`)
 - For users who installed globally but want project-specific, git-committed context
 - Shows diff if local files already exist, asks before overwriting
 - Optionally cleans up global project-intelligence after migration

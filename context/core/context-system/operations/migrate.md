@@ -41,14 +41,17 @@ Status: No local project-intelligence/ found
 ```
 
 **If no global context found:**
+
 ```
 No global context found at ~/.config/opencode/context/
 
 Nothing to migrate. Use /add-context to create project intelligence.
 ```
+
 → Exit
 
 **If no global project-intelligence found (but other global context exists):**
+
 ```
 Global context found at ~/.config/opencode/context/ but no project-intelligence/ directory.
 
@@ -57,6 +60,7 @@ Core standards stay in global (they're universal, not project-specific).
 
 Nothing to migrate. Use /add-context to create project intelligence.
 ```
+
 → Exit
 
 ---
@@ -94,6 +98,7 @@ Choose [1/2/3]: _
 ```
 
 **If user chooses 2 (Overwrite), show content diff first:**
+
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Diff: technical-domain.md
@@ -142,6 +147,7 @@ Proceed? [y/n]: _
 ```
 
 **Actions on approval:**
+
 1. Create `.opencode/context/project-intelligence/` if it doesn't exist
 2. Copy each file from global → local
 3. Validate copied files (frontmatter, MVI compliance)
@@ -175,6 +181,7 @@ Choose [1/2] (default: 1): _
 ```
 
 **If user chooses 2 (Remove):**
+
 - Delete `~/.config/opencode/context/project-intelligence/` only
 - Do NOT touch `~/.config/opencode/context/core/` or any other global context
 
@@ -184,14 +191,14 @@ Choose [1/2] (default: 1): _
 
 ## What Gets Migrated
 
-| Migrated (project-specific) | NOT Migrated (universal) |
-|---|---|
-| `project-intelligence/` | `core/standards/` |
-| `project-intelligence/technical-domain.md` | `core/context-system/` |
-| `project-intelligence/business-domain.md` | `core/workflows/` |
-| `project-intelligence/navigation.md` | `core/guides/` |
-| `project-intelligence/decisions-log.md` | Any other `core/` files |
-| `project-intelligence/living-notes.md` | |
+| Migrated (project-specific)                | NOT Migrated (universal) |
+| ------------------------------------------ | ------------------------ |
+| `project-intelligence/`                    | `core/standards/`        |
+| `project-intelligence/technical-domain.md` | `core/context-system/`   |
+| `project-intelligence/business-domain.md`  | `core/workflows/`        |
+| `project-intelligence/navigation.md`       | `core/guides/`           |
+| `project-intelligence/decisions-log.md`    | Any other `core/` files  |
+| `project-intelligence/living-notes.md`     |                          |
 
 **Rationale**: Project intelligence is project-specific (YOUR tech stack, YOUR patterns). Core standards are universal (code quality, documentation standards) and should stay global.
 
@@ -200,12 +207,14 @@ Choose [1/2] (default: 1): _
 ## Error Handling
 
 **Permission denied:**
+
 ```
 Error: Cannot write to ~/.config/opencode/context/project-intelligence/
 Check directory permissions and try again.
 ```
 
 **Global path not found:**
+
 ```
 No global OpenCode config found at ~/.config/opencode/
 
