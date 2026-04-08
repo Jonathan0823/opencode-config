@@ -11,6 +11,9 @@ yarn.lock
 .env.local
 .env.*.local
 
+# Secrets
+.secrets/
+
 # Editor directories and files
 .vscode/
 .idea/

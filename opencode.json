@@ -17,6 +17,15 @@
       },
       "enabled": true,
       "timeout": 30000
+    },
+    "github": {
+      "type": "remote",
+      "enabled": true,
+      "url": "https://api.githubcopilot.com/mcp/",
+      "oauth": false,
+      "headers": {
+        "Authorization": "Bearer {file:~/.config/opencode/.secrets/github-key}"
+      }
     }
   },
   "agent": {
