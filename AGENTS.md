@@ -174,9 +174,12 @@ test(auth): add integration tests
 ### Commit Workflow
 
 - Use `/commit` as a plan-first workflow, not a blind commit helper.
+- `/commit` groups the diff by responsibility and produces **one numbered draft per group**.
+- If the diff has a single responsibility, one draft is produced. If multiple, multiple drafts are produced in dependency order (cleanup/removal → config → docs → code).
+- Each draft is approved separately before moving to the next.
 - Confirm branch safety before staging or committing.
 - Refuse direct commits on `main` or `master` unless explicitly overridden.
-- Keep commits to one logical responsibility.
+- One draft = one logical responsibility.
 - Reject commit subjects that combine multiple outcomes, especially subjects containing ` and ` or ` & `.
 - Run required checks before final confirmation.
 
