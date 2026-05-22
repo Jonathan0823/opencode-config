@@ -371,8 +371,8 @@ The assistant should proceed autonomously for:
 
 ### Safer Commands
 
-- `/commit`: stage only confirmed files, show message for approval, no auto-push
-- `/pr`: plan-first PR draft, show title + body for approval, never auto-create
+- `/commit`: plan-only — show commit draft for approval, user executes outside the command
+- `/pr`: plan-only — show PR draft for approval, user executes outside the command
 - `/fix`: reproduce -> diagnose -> propose -> approve -> fix -> verify
 - `/spec`: write spec, show summary, save after approval
 - `/review`: findings-first, no edits unless asked

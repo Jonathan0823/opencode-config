@@ -45,22 +45,7 @@ Create a commit draft. This command plans first — it never stages or commits w
 
 6. **Ask for approval**:
    - "Commit this?" → yes / no / edit message / change file selection
-
-## Phase 2 — Execute (only after user approval)
-
-7. **Stage files** only after user confirms:
-   ```bash
-   git add <file1> <file2>
-   ```
-
-8. **Re-check staged diff**: confirm it still has one responsibility.
-
-9. **Commit**:
-   ```bash
-   git commit -m "type(scope): description"
-   ```
-
-10. **Show result**: commit hash and summary. Ask if user wants to push.
+   - If yes, the user runs the commit manually outside this command.
 
 ## Hard Rules
 
@@ -69,4 +54,4 @@ Create a commit draft. This command plans first — it never stages or commits w
 - Never auto-push.
 - Never commit on protected branches unless explicitly overridden.
 - Never use a subject that combines multiple outcomes.
-- This command never stages or commits without explicit user approval.
+- This command is plan-only. Execution happens outside the command after user approval.

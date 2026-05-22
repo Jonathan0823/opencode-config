@@ -62,15 +62,7 @@ Create a pull request draft. This command plans first — it never creates a PR 
 
 5. **Ask for approval**:
    - "Create this PR?" → yes / no / edit title / edit body / change scope
-
-## Phase 2 — Execute (only after user approval)
-
-6. **Create PR**:
-   ```bash
-   gh pr create --title "type(scope): description" --body "<body>" --base <base-branch>
-   ```
-
-7. **Output**: Show the PR URL when complete.
+   - If yes, the user runs `gh pr create` manually outside this command.
 
 ## Hard Rules
 
@@ -78,3 +70,4 @@ Create a pull request draft. This command plans first — it never creates a PR 
 - Never auto-create a PR.
 - Never create a PR on protected branches without explicit override.
 - Never use a title that combines multiple outcomes.
+- This command is plan-only. Execution happens outside the command after user approval.

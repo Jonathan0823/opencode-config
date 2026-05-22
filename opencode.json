@@ -98,6 +98,10 @@
           "git diff*": "allow",
           "git log*": "allow",
           "git branch*": "allow",
+          "git add*": "allow",
+          "git commit*": "allow",
+          "git push*": "allow",
+          "gh pr*": "allow",
           "ls": "allow",
           "ls *": "allow",
           "pwd": "allow"
