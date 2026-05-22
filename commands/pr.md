@@ -19,9 +19,9 @@ Create a pull request draft. This command plans first — it never creates a PR 
 
 2. **Determine base branch**: Check `git remote show origin` for HEAD branch.
 
-3. **Build the PR draft**:
+3. **Build the PR draft** using the `pr-writing` skill template:
    - Title: conventional commit format, under 72 chars
-   - Body: use the `pr-writing` skill template:
+   - Body sections (fill every section, do not skip):
      ```
      ## Related issue
      - Closes #<issue-number>
@@ -39,6 +39,12 @@ Create a pull request draft. This command plans first — it never creates a PR 
      - [ ] Integration tests
      - [ ] Manual verification
 
+     ### Test details
+     - Commands run:
+       - <command>
+     - Results:
+       - <result>
+
      ## Reviewer focus
      - Please review: <critical files/logic>
      - Risk areas: <edge cases>
@@ -49,20 +55,15 @@ Create a pull request draft. This command plans first — it never creates a PR 
      ```
    - Do NOT include verbose line-by-line file listings
 
-4. **Show the PR draft** to the user:
-   ```
-   Branch: <branch> → <base-branch>
-
-   Title:
-   type(scope): description
-
-   Body:
-   <full body>
-   ```
+4. **Show the full PR draft** to the user exactly as it will be submitted, including every section from the template.
 
 5. **Ask for approval**:
    - "Create this PR?" → yes / no / edit title / edit body / change scope
-   - If yes, the user runs `gh pr create` manually outside this command.
+   - If yes, the user creates the PR manually outside this command.
+
+6. **Execution guidance** (shown after approval, not executed by this command):
+   - Preferred: use GitHub MCP `github_create_pull_request` with the drafted title and body
+   - Fallback: `gh pr create --title "..." --body "..." --base <base-branch>`
 
 ## Hard Rules
 
@@ -74,4 +75,4 @@ Create a pull request draft. This command plans first — it never creates a PR 
 
 ---
 
-**STOP HERE.** Do not create the PR. Wait for the user to explicitly approve and run `gh pr create` manually.
+**STOP HERE.** Do not create the PR. Wait for the user to explicitly approve. After approval, the user creates the PR using GitHub MCP (preferred) or `gh pr create` (fallback).
