@@ -71,3 +71,7 @@ Create a pull request draft. This command plans first — it never creates a PR 
 - Never create a PR on protected branches without explicit override.
 - Never use a title that combines multiple outcomes.
 - This command is plan-only. Execution happens outside the command after user approval.
+
+---
+
+**STOP HERE.** Do not create the PR. Wait for the user to explicitly approve and run `gh pr create` manually.

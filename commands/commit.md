@@ -55,3 +55,7 @@ Create a commit draft. This command plans first — it never stages or commits w
 - Never commit on protected branches unless explicitly overridden.
 - Never use a subject that combines multiple outcomes.
 - This command is plan-only. Execution happens outside the command after user approval.
+
+---
+
+**STOP HERE.** Do not stage, commit, or push. Wait for the user to explicitly approve and run the commands manually.
