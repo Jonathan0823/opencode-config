@@ -1,7 +1,7 @@
 ---
 description: Create a commit draft for review and approval
 agent: plan
-subtask: true
+subtask: false
 ---
 
 Create a commit draft. This command plans first — it never stages or commits without explicit approval.

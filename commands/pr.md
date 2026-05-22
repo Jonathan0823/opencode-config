@@ -1,7 +1,7 @@
 ---
 description: Create a pull request draft for review and approval
 agent: plan
-subtask: true
+subtask: false
 ---
 
 Create a pull request draft. This command plans first — it never creates a PR without explicit approval.
