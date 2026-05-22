@@ -13,7 +13,7 @@ This document outlines the standards and best practices for designing and implem
 - Design interactions that prioritize user needs and preferences.
 - Provide options for users to customize their experience with the AI agent.
 - Always ask for questions when user intent is unclear or when multiple interpretations are possible.
-- Offer to use specific subagents when appropriate: "Should I use @researcher to look into this?"
+- Offer to use specific subagents when appropriate: "Should I use @ExternalScout to look up current docs?"
 
 ### 3. Reviewing & Debugging
 
@@ -29,42 +29,43 @@ This document outlines the standards and best practices for designing and implem
 
 | Subagent | Purpose | When to Use |
 |----------|---------|-------------|
-| `@code-reviewer` | Code review | Reviewing code for quality, security, performance |
-| `@researcher` | Research | Investigating libraries, patterns, solutions |
-| `@refactorer` | Refactoring | Improving code structure safely |
-| `@explainer` | Explanation | Understanding code, generating documentation |
-| `@implementer` | Implementation | Building features end-to-end |
+| `@CodeReviewer` | Code review | Reviewing code for quality, security, performance |
+| `@ContextScout` | Internal context | Finding project standards and workflow context |
+| `@ExternalScout` | External docs | Fetching current library/framework documentation |
+| `@CoderAgent` | Bounded implementation | Executing specific subtasks after planning |
+| `@TestEngineer` | Testing | Writing or expanding tests |
+| `@DocWriter` | Documentation | Creating or updating docs |
 
 ### Usage Patterns
 
 **For Research:**
 ```
 User: "What's the best way to implement authentication in Go?"
-→ Use @researcher
+→ Use @ExternalScout for library docs, or @ContextScout for project conventions
 ```
 
 **For Code Review:**
 ```
 User: "Please review this code"
-→ Use @code-reviewer
+→ Use @CodeReviewer
 ```
 
 **For Refactoring:**
 ```
 User: "Refactor this to be more maintainable"
-→ Use @refactorer
+→ Use built-in build agent with the `refactoring-safely` skill, or @CoderAgent for a bounded subtask
 ```
 
 **For Documentation:**
 ```
 User: "Explain how this works and add docs"
-→ Use @explainer
+→ Use @DocWriter
 ```
 
 **For Feature Implementation:**
 ```
 User: "Build a user authentication system"
-→ Use @implementer
+→ Use built-in build agent; delegate bounded subtasks to @CoderAgent when useful
 ```
 
 ---
@@ -78,6 +79,8 @@ User: "Build a user authentication system"
 - Use interfaces for testability
 - Explicit error handling
 - Small, focused functions
+- Final handoff must run `gofmt` on changed Go files and `golangci-lint run ./...`
+- If the lint command is unavailable, stop and report it before handoff
 
 **Rust:**
 - Follow `rust-patterns` skill
@@ -90,6 +93,15 @@ User: "Build a user authentication system"
 - Strict TypeScript configuration
 - Explicit types for public APIs
 - Avoid `any` type
+- Final handoff must run `npm run lint` for Next.js/TypeScript repos
+- If the repo has TypeScript and no project typecheck script exists, run `npx tsc --noEmit`
+- If the repo uses ESLint and TypeScript, both checks are required at handoff
+
+**Next.js:**
+- Treat Next.js as TypeScript rules plus framework-specific linting
+- Final handoff must run `npm run lint`
+- Final handoff must run `npx tsc --noEmit` when TypeScript is present
+- If either command fails, stop and report before handoff
 
 **Python:**
 - Type hints for function signatures
@@ -112,17 +124,17 @@ User: "Build a user authentication system"
 
 ### Feature Development Process
 
-1. **Research** → Use `@researcher` for investigation
+1. **Research** → Use `@ContextScout` for internal patterns or `@ExternalScout` for current external docs
 2. **Plan** → Define interfaces, break into tasks
-3. **Implement** → Use `@implementer` or code directly
+3. **Implement** → Use built-in build agent directly; delegate bounded subtasks to `@CoderAgent` when useful
 4. **Test** → Unit, integration, manual tests
-5. **Review** → Use `@code-reviewer`
-6. **Document** → Use `@explainer`
+5. **Review** → Use `@CodeReviewer`
+6. **Document** → Use `@DocWriter`
 
 ### Bug Fixing Process
 
 1. **Reproduce** → Create reliable test case
-2. **Investigate** → Use `@researcher` if needed
+2. **Investigate** → Use `@ContextScout` or `@ExternalScout` if needed
 3. **Fix** → Minimal change, root cause
 4. **Verify** → Tests pass
 5. **Deploy** → Monitor for regression
@@ -133,7 +145,7 @@ User: "Build a user authentication system"
 2. **Small Changes** → One change at a time
 3. **Run Tests** → After every change
 4. **Commit** → Frequent commits
-5. **Review** → Use `@refactorer`
+5. **Review** → Use `@CodeReviewer`
 
 ---
 
@@ -158,6 +170,15 @@ docs(readme): update installation
 refactor(db): optimize queries
 test(auth): add integration tests
 ```
+
+### Commit Workflow
+
+- Use `/commit` as a plan-first workflow, not a blind commit helper.
+- Confirm branch safety before staging or committing.
+- Refuse direct commits on `main` or `master` unless explicitly overridden.
+- Keep commits to one logical responsibility.
+- Reject commit subjects that combine multiple outcomes, especially subjects containing ` and ` or ` & `.
+- Run required checks before final confirmation.
 
 ### Pull Request Process
 
@@ -329,3 +350,37 @@ Use skills when:
 - Note common patterns that need skills
 - Update documentation based on usage
 - Refine prompts based on results
+
+---
+
+## Permissions & Guardrails (Balanced-Strict)
+
+### Approval Gates
+
+The assistant should ask before:
+- **Destructive operations**: `rm`, force push, branch deletion, mass rewrites
+- **Architecture changes**: new dependencies, new services, schema changes, public API changes
+- **Commits and pushes**: always show proposed commit message, never auto-push
+- **PR creation**: always show draft title/body, get confirmation
+
+The assistant should proceed autonomously for:
+- Reading, searching, listing files
+- Routine edits to existing code (same pattern, same structure)
+- Running tests and linters
+- Running git status, diff, log (read-only git commands)
+
+### Safer Commands
+
+- `/commit`: stage only confirmed files, show message for approval, no auto-push
+- `/pr`: plan-first PR draft, show title + body for approval, never auto-create
+- `/fix`: reproduce -> diagnose -> propose -> approve -> fix -> verify
+- `/spec`: write spec, show summary, save after approval
+- `/review`: findings-first, no edits unless asked
+
+### Workflow Principles
+
+1. **Show before doing**: Always present the plan before executing.
+2. **Minimal changes**: Fix the root cause, not symptoms. One change at a time.
+3. **Verify after**: Run relevant tests after changes. Report results.
+4. **No secrets**: Never commit or expose .env, keys, or credentials.
+5. **Incremental over batch**: Do one thing, verify, then proceed.

@@ -2,7 +2,7 @@
 
 Control your AI patterns. Get repeatable results.
 
-This repository is a production-oriented OpenCode configuration that applies the OpenAgents Control workflow: context-aware planning, approval gates, modular delegation, and consistent implementation standards.
+This repository is a production-oriented OpenCode configuration inspired by useful OpenAgents Control ideas: context-aware planning, approval gates, modular delegation, and consistent implementation standards.
 
 If you’ve ever had AI generate code that _works_ but doesn’t match your architecture, naming, or quality bar, this config is built to solve exactly that.
 
@@ -36,7 +36,7 @@ External library lookups are supported via Context7 workflows, helping avoid out
 
 - **Core agents** for general execution and coding workflows
 - **Specialized subagents** for planning, implementation, testing, review, and documentation
-- **Command system** for structured, repeatable workflows
+- **Slash commands** for repeatable workflows: `/commit`, `/pr`, `/spec`, `/review`, `/fix`, `/context`
 - **Context system** for standards, workflows, and project intelligence
 - **Skill library** across frontend, backend, infra, security, testing, and documentation
 - **Runtime config** through `opencode.json`
@@ -119,7 +119,7 @@ This config includes MCP (Model Context Protocol) connections for enhanced tooli
 
 Context7 provides live documentation lookups so agents can fetch up-to-date library docs without relying on training data.
 
-- Used by the `Context7` skill and `@researcher` agent
+- Used by the `context7` skill and `@ExternalScout` agent
 - Enables real-time library docs, code examples, and API references
 - Configured in `opencode.json` under the `context7` key
 - API key set via `CONTEXT7_API_KEY` in `.env`
@@ -149,11 +149,20 @@ GitHub MCP enables AI agents to interact with GitHub directly—creating issues,
 ## Example prompts
 
 ```text
-@implementer build this endpoint using our API conventions
-@code-reviewer review this diff for security and maintainability risks
-@researcher compare library options for this feature
-@explainer summarize this module and generate docs
+@CoderAgent implement this bounded subtask using our API conventions
+@CodeReviewer review this diff for security and maintainability risks
+@ExternalScout compare current library options for this feature
+@DocWriter summarize this module and generate docs
 ```
+
+Common workflows are available as slash commands:
+
+- `/commit` - stage selected files and create a conventional commit
+- `/pr` - draft and create a pull request
+- `/spec` - write or update a spec before implementation
+- `/review` - run a strict review on code or diffs
+- `/fix` - reproduce, patch, and verify a bug
+- `/context` - load relevant project context
 
 ---
 
@@ -175,7 +184,7 @@ This is intentionally optimized for reliability and maintainability over "fire-a
 
 ```text
 agent/          # Core agents and specialized subagents
-command/        # Slash commands and workflow entrypoints
+commands/       # Slash commands and workflow entrypoints
 config/         # Metadata and config support files
 context/        # Standards, workflows, project intelligence
 skills/         # Reusable capability modules
@@ -191,7 +200,7 @@ You can safely adapt this config to your team:
 
 - Update context files in `context/project-intelligence/`
 - Tune agent behavior in `agent/`
-- Add workflow commands under `command/`
+- Add workflow commands under `commands/`
 - Extend capabilities through `skills/`
 
 Tip: keep edits incremental and tested. If behavior changes significantly, document it in README or context notes.
@@ -214,13 +223,13 @@ No. You can keep only the skills and commands your team actively uses.
 
 ### Can I still use upstream OAC resources?
 
-Yes. This repo is compatible with OAC workflows and patterns and can be evolved alongside upstream guidance.
+Yes, but they are reference material now. Native OpenCode config, `commands/`, skills, and specialist agents are the active workflow.
 
 ---
 
 ## Attribution
 
-Powered by [OpenAgents Control (OAC)](https://github.com/darrenhinde/OpenAgentsControl) by Darren Hinde.
+Inspired by [OpenAgents Control (OAC)](https://github.com/darrenhinde/OpenAgentsControl) by Darren Hinde.
 
 ---
 
