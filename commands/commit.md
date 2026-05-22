@@ -1,12 +1,12 @@
 ---
-description: Create a commit draft for review and approval
+description: Create commit draft(s) for review and approval — SRP-first, may produce multiple drafts
 agent: plan
 subtask: false
 ---
 
-Create a commit draft. This command plans first — it never stages or commits without explicit approval.
+Create one or more commit drafts. This command plans only — it never stages or commits without explicit approval.
 
-## Phase 1 — Plan (run in plan mode)
+## Phase 1 — Inspect
 
 1. **Check branch and status**:
    ```bash
@@ -15,24 +15,27 @@ Create a commit draft. This command plans first — it never stages or commits w
    git diff --stat
    ```
 
-2. **Build the commit draft**:
-   - current branch
-   - changed files
-   - single responsibility summary
-   - risk level
-   - proposed commit message in conventional format: `type(scope): description`
-
-3. **Enforce branch safety**:
+2. **Enforce branch safety**:
    - refuse direct commits on protected branches like `main` or `master`
    - recommend creating a feature branch first
 
-4. **Check SRP**:
-   - only one logical change per commit
-   - if the diff contains multiple responsibilities, split it before continuing
-   - reject commit subjects that imply mixed scope, especially subjects containing ` and ` or ` & `
+## Phase 2 — Group by Responsibility
 
-5. **Show the commit draft** to the user:
+3. **Cluster changed files into responsibility groups**:
+   - each group must represent exactly one logical change
+   - group by concern, not by file path alone (e.g. "config/docs" together, "command workflow" together, "cleanup/removals" together)
+   - if a file touches multiple concerns, assign it to the dominant concern and note the overlap
+   - if the diff is too broad to cluster cleanly, stop and ask the user to narrow the scope before drafting
+
+## Phase 3 — Draft
+
+4. **Produce commit drafts**:
+   - **one group only** → produce one commit draft
+   - **multiple groups** → produce multiple numbered commit drafts in dependency order (cleanup/removal first, then config, then docs, then code)
+
+   Each draft must show:
    ```
+   ### Draft N — <responsibility label>
    Branch: <branch>
    Files: <file list>
    Risk: <low | medium | high>
@@ -40,20 +43,23 @@ Create a commit draft. This command plans first — it never stages or commits w
    Proposed commit:
    type(scope): description
 
-   <one-line summary of what this commit does and why>
+   <one-line summary of what this commit does and why it is a single responsibility>
    ```
 
-6. **Ask for approval**:
-   - "Commit this?" → yes / no / edit message / change file selection
-   - If yes, the user runs the commit manually outside this command.
+## Phase 4 — Approve
+
+5. **Ask for approval per draft**:
+   - "Approve Draft N?" → yes / no / edit message / change file selection
+   - If yes, the user runs the matching `git add` / `git commit` manually outside this command.
+   - Move to the next draft only after the current one is resolved.
 
 ## Hard Rules
 
-- One commit = one responsibility.
-- If the diff reads like two changes, split it.
+- One draft = one responsibility.
+- No `and` / `&` in commit subjects.
+- No mixed-scope commits.
 - Never auto-push.
 - Never commit on protected branches unless explicitly overridden.
-- Never use a subject that combines multiple outcomes.
 - This command is plan-only. Execution happens outside the command after user approval.
 
 ---
