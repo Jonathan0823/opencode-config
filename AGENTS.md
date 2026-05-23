@@ -377,7 +377,7 @@ The assistant should proceed autonomously for:
 - `/commit`: plan-only — show commit draft for approval, user executes outside the command
 - `/pr`: plan-only — show PR draft for approval, user executes outside the command
 - `/fix`: reproduce -> diagnose -> propose -> approve -> fix -> verify
-- `/spec`: write spec, show summary, save after approval
+- `/spec`: load TaskManager, generate spec from the plan, show summary, save after approval
 - `/review`: findings-first, no edits unless asked
 
 ### Workflow Principles

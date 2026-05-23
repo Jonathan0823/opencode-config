@@ -159,7 +159,7 @@ Common workflows are available as slash commands:
 
 - `/commit` - produce one or more SRP commit drafts for approval (plan-only)
 - `/pr` - draft and create a pull request
-- `/spec` - write or update a spec before implementation
+- `/spec` - turn a plan into a spec and task bundle via TaskManager
 - `/review` - run a strict review on code or diffs
 - `/fix` - reproduce, patch, and verify a bug
 - `/context` - load relevant project context

@@ -1,10 +1,10 @@
 ---
-description: Create or update a feature specification (PRD/SDD)
-agent: build
-subtask: true
+description: Generate a spec and task bundle from a feature plan
+agent: TaskManager
+subtask: false
 ---
 
-Create or update a specification for the given feature following spec-driven development.
+Generate a specification and task bundle from the user's plan.
 
 ## User Input
 
@@ -12,25 +12,19 @@ $ARGUMENTS
 
 ## Process
 
-1. **Interpret request**: Parse what feature the user wants specified.
+1. **Interpret plan**: Treat the user's plan as the source of truth.
 
-2. **Load methodology**: Load the `prd` and `spec-driven-development` skills.
+2. **Load methodology**: Load the `task-management` skill and TaskManager guidance.
 
 3. **Ask clarifying questions**: If ambiguous, ask up to 3 targeted questions:
-   - What is the core problem being solved?
-   - Who are the users/actors?
-   - What are the success criteria?
+   - What problem is being solved?
+   - Who are the users or actors?
+   - What defines success?
 
-4. **Write spec**: Create or update a spec file under `tasks/` with:
-   - Feature name and brief description
-   - Actors and user stories
-   - Functional requirements
-   - Non-functional constraints
-   - Success criteria
-   - Out of scope (if applicable)
+4. **Generate spec**: Create `spec.md` and the task bundle under `.tmp/tasks/{feature-slug}/`.
 
-5. **Present**: Show the spec summary and ask for approval.
+5. **Present**: Show the spec summary and task bundle summary.
 
-6. **Save**: Write to `tasks/{feature-name}/spec.md`.
+6. **Save**: Write the spec and task bundle after approval.
 
-7. **Next steps**: Suggest follow-up commands like `/plan` or implementation tasks.
+7. **Next steps**: Suggest implementation tasks or `/plan` follow-up.
