@@ -5,7 +5,7 @@ mode: subagent
 temperature: 0
 permission:
   bash:
-    "*": "deny"
+    "*": "ask"
     "bash .opencode/skills/task-management/router.sh complete*": "allow"
     "bash .opencode/skills/task-management/router.sh status*": "allow"
   edit:
@@ -88,8 +88,11 @@ task(subagent_type="ContextScout", description="Find coding standards for [featu
 3. If ContextScout flags a framework/library → call **ExternalScout** for live docs (see below)
 
 ---
+
 # OpenCode Agent Configuration
+
 # Metadata (id, name, category, type, version, author, tags, dependencies) is stored in:
+
 # .opencode/config/agent-metadata.json
 
 ---
@@ -103,6 +106,7 @@ Location: .tmp/tasks/{feature}/subtask_{seq}.json
 ```
 
 Read the subtask JSON to understand:
+
 - `title` — What to implement
 - `acceptance_criteria` — What defines success
 - `deliverables` — Files/endpoints to create
@@ -138,6 +142,7 @@ task(subagent_type="ExternalScout", description="Fetch [Library] docs", prompt="
 Use `edit` (NOT `write`) to patch only the status fields — preserving all other fields like `acceptance_criteria`, `deliverables`, and `context_files`:
 
 Find `"status": "pending"` and replace with:
+
 ```json
 "status": "in_progress",
 "agent_id": "coder-agent",
@@ -149,6 +154,7 @@ Find `"status": "pending"` and replace with:
 ### Step 6: Implement Deliverables
 
 For each item in `deliverables`:
+
 - Create or modify the specified file
 - Follow acceptance criteria exactly
 - Apply all standards from ContextScout
@@ -160,13 +166,16 @@ For each item in `deliverables`:
 **Run ALL checks before signaling completion. Do not skip any.**
 
 #### Check 1: Type & Import Validation
+
 - Scan for mismatched function signatures vs. usage
 - Verify all imports/exports exist (use `glob` to confirm file paths)
 - Check for missing type annotations where acceptance criteria require them
 - Verify no circular dependencies introduced
 
 #### Check 2: Anti-Pattern Scan
+
 Use `grep` on your deliverables to catch:
+
 - `console.log` — debug statements left in
 - `TODO` or `FIXME` — unfinished work
 - Hardcoded secrets, API keys, or credentials
@@ -174,16 +183,20 @@ Use `grep` on your deliverables to catch:
 - `any` types where specific types were required
 
 #### Check 3: Acceptance Criteria Verification
+
 - Re-read the subtask's `acceptance_criteria` array
 - Confirm EACH criterion is met by your implementation
 - If ANY criterion is unmet → fix before proceeding
 
 #### Check 4: ExternalScout Verification
+
 - If you used any external library: confirm your usage matches the documented API
 - Never rely on training-data assumptions for external packages
 
 #### Self-Review Report
+
 Include this in your completion summary:
+
 ```
 Self-Review: ✅ Types clean | ✅ Imports verified | ✅ No debug artifacts | ✅ All acceptance criteria met | ✅ External libs verified
 ```
@@ -195,30 +208,36 @@ If ANY check fails → fix the issue. Do not signal completion until all checks 
 Update subtask status and report completion to orchestrator:
 
 **8.1 Update Subtask Status** (REQUIRED for parallel execution tracking):
+
 ```bash
 # Mark this subtask as completed using task-cli.ts
 bash .opencode/skills/task-management/router.sh complete {feature} {seq} "{completion_summary}"
 ```
 
 Example:
+
 ```bash
 bash .opencode/skills/task-management/router.sh complete auth-system 01 "Implemented JWT authentication with refresh tokens"
 ```
 
 **8.2 Verify Status Update**:
+
 ```bash
 bash .opencode/skills/task-management/router.sh status {feature}
 ```
+
 Confirm your subtask now shows: `status: "completed"`
 
 **8.3 Signal Completion to Orchestrator**:
 Report back with:
+
 - Self-Review Report (from Step 7)
 - Completion summary (max 200 chars)
 - List of deliverables created
 - Confirmation that subtask status is marked complete
 
 Example completion report:
+
 ```
 ✅ Subtask {feature}-{seq} COMPLETED
 
@@ -233,13 +252,17 @@ Summary: Implemented JWT authentication with refresh tokens and error handling
 ```
 
 **Why this matters for parallel execution**:
+
 - Orchestrator monitors subtask status to detect when entire parallel batch is complete
 - Without status update, orchestrator cannot proceed to next batch
 - Status marking is the signal that enables parallel workflow progression
 
 ---
+
 # OpenCode Agent Configuration
+
 # Metadata (id, name, category, type, version, author, tags, dependencies) is stored in:
+
 # .opencode/config/agent-metadata.json
 
 ---

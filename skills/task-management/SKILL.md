@@ -15,13 +15,13 @@ tags:
 
 # Task Management Skill
 
-> **Purpose**: Track, manage, and validate feature implementations with atomic task breakdowns, dependency resolution, and progress monitoring.
+> **Purpose**: Track, manage, and validate feature implementations with spec generation, atomic task breakdowns, dependency resolution, and progress monitoring.
 
 ---
 
 ## What I Do
 
-I provide a command-line interface for managing task breakdowns created by the TaskManager subagent. I help you:
+I provide a command-line interface for managing task bundles created by the TaskManager subagent. I help you:
 
 - **Track progress** - See status of all features and their subtasks
 - **Find next tasks** - Show eligible tasks (dependencies satisfied)
@@ -145,6 +145,7 @@ Tasks are stored in `.tmp/tasks/` at the project root:
 ```
 .tmp/tasks/
 ├── {feature-slug}/
+│   ├── spec.md                      # Generated spec
 │   ├── task.json                     # Feature-level metadata
 │   ├── subtask_01.json               # Subtask definitions
 │   ├── subtask_02.json
@@ -201,14 +202,15 @@ The TaskManager subagent creates task files using this format. When you delegate
 ```javascript
 task(
   subagent_type="TaskManager",
-  description="Implement feature X",
-  prompt="Break down this feature into atomic subtasks..."
+  description="Generate spec and task bundle for feature X",
+  prompt="Turn this plan into a spec.md file and atomic subtasks..."
 )
 ```
 
 TaskManager creates:
-1. `.tmp/tasks/{feature}/task.json` - Feature metadata
-2. `.tmp/tasks/{feature}/subtask_XX.json` - Individual subtasks
+1. `.tmp/tasks/{feature}/spec.md` - Generated specification
+2. `.tmp/tasks/{feature}/task.json` - Feature metadata
+3. `.tmp/tasks/{feature}/subtask_XX.json` - Individual subtasks
 
 You can then use this skill to track and manage progress.
 
@@ -290,8 +292,8 @@ Working agents (CoderAgent, TestEngineer, etc.) execute subtasks and report comp
 ### Starting a New Feature
 
 ```bash
-# 1. TaskManager creates the task structure
-task(subagent_type="TaskManager", description="Implement feature X", ...)
+# 1. TaskManager creates the spec and task structure
+task(subagent_type="TaskManager", description="Generate spec and task bundle for feature X", ...)
 
 # 2. Check what's ready
 bash .opencode/skills/task-management/router.sh next

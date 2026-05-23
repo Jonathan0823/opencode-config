@@ -139,16 +139,16 @@ type: subagent
 ```javascript
 task(
   subagent_type="Task Manager",
-  description="Break down complex feature",
-  prompt="Break down the following feature into atomic subtasks:
-          
-          Feature: {feature description}
-          
+  description="Generate spec and task bundle",
+  prompt="Turn the following plan into a spec.md file and atomic subtasks:
+           
+          Plan: {feature description}
+           
           Requirements:
           - {requirement 1}
           - {requirement 2}
-          
-          Create subtask files in tasks/subtasks/{feature}/"
+           
+          Create the bundle in .tmp/tasks/{feature}/"
 )
 ```
 
