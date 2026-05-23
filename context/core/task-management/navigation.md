@@ -29,6 +29,7 @@ core/task-management/
 
 | Task | Path | Priority |
 |------|------|----------|
+| **Generate spec from a plan** | `guides/managing-tasks.md` | ⭐⭐⭐⭐⭐ |
 | **Understand base schema** | `standards/task-schema.md` | ⭐⭐⭐⭐⭐ |
 | **Use enhanced features** | `standards/enhanced-task-schema.md` | ⭐⭐⭐⭐ |
 | **Split a feature** | `guides/splitting-tasks.md` | ⭐⭐⭐⭐⭐ |
@@ -43,6 +44,11 @@ core/task-management/
 1. Load `standards/task-schema.md` (understand base structure)
 2. Load `guides/splitting-tasks.md` (decomposition approach)
 3. Reference `lookup/task-commands.md` (validate after creation)
+
+### For Generating Specs from Plans:
+1. Load `guides/managing-tasks.md` (spec + lifecycle flow)
+2. Load `guides/splitting-tasks.md` (how specs become tasks)
+3. Reference `standards/task-schema.md` (expected JSON output)
 
 ### For Multi-Stage Orchestration:
 1. Load `standards/enhanced-task-schema.md` (advanced features)
@@ -59,6 +65,7 @@ core/task-management/
 ## Related
 
 - **Active tasks** → `.tmp/tasks/{feature}/` (at project root)
+- **Spec artifacts** → `.tmp/tasks/{feature}/spec.md`
 - **Completed tasks** → `.tmp/tasks/completed/{feature}/`
 - **TaskManager agent** → `.opencode/agent/subagents/core/task-manager.md`
 - **Planning agents** → `.opencode/agent/subagents/planning/` (ArchitectureAnalyzer, StoryMapper, PrioritizationEngine, ContractManager, ADRManager)

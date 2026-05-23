@@ -11,6 +11,7 @@
 ## Prerequisites
 
 - TaskManager agent available
+- A feature plan is available for `/spec`
 - Feature folder created in `.tmp/tasks/` (at project root)
 
 ---
@@ -18,12 +19,26 @@
 ## Workflow Overview
 
 ```
-1. Initiation    → TaskManager creates task.json + subtasks
-2. Selection     → Find eligible tasks (deps satisfied)
-3. Execution     → Working agent implements task
-4. Verification  → TaskManager validates completion
-5. Archiving     → Move to completed/ when done
+0. Spec Generation → /spec loads TaskManager and creates spec.md + task bundle
+1. Initiation      → TaskManager creates task.json + subtasks
+2. Selection       → Find eligible tasks (deps satisfied)
+3. Execution       → Working agent implements task
+4. Verification    → TaskManager validates completion
+5. Archiving       → Move to completed/ when done
 ```
+
+---
+
+## 0. Spec Generation (`/spec`)
+
+When the user has a feature plan and runs `/spec`:
+
+1. `/spec` loads TaskManager
+2. TaskManager turns the plan into `spec.md`
+3. TaskManager creates the task bundle under `.tmp/tasks/{feature-slug}/`
+4. TaskManager presents the spec summary for approval
+
+The plan is the source of truth. TaskManager may ask clarifying questions if critical details are missing.
 
 ---
 
@@ -32,6 +47,7 @@
 Create feature folder and files:
 ```
 .tmp/tasks/{feature-slug}/
+├── spec.md
 ├── task.json
 ├── subtask_01.json
 ├── subtask_02.json

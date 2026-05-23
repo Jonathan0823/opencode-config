@@ -252,27 +252,25 @@ These are live documentation files fetched from external libraries. Subagents sh
 ```javascript
 task(
   subagent_type="TaskManager",
-  description="Break down Drizzle + Better Auth integration",
-  prompt="Load context from .tmp/sessions/2026-01-28-drizzle-auth/context.md
+  description="Generate spec and task bundle for Drizzle + Better Auth integration",
+  prompt="Use the plan below as the source of truth.
 
-          Read the context file for full requirements, standards, and external documentation.
-          
-          Break down this feature into atomic subtasks:
+          Turn this feature into a spec.md file and atomic subtasks:
           1. Drizzle schema setup with modular organization
           2. Better Auth configuration with Drizzle adapter
           3. Next.js App Router integration
           4. Test suite
           
           For each subtask, include:
-          - context_files: Standards from context.md
-          - reference_files: Project files to understand
+          - context_files: Standards only
+          - reference_files: Project files only
           - external_context: External docs to reference
-          
-          Create subtask files in tasks/subtasks/drizzle-auth-integration/"
+           
+          Create the bundle in .tmp/tasks/drizzle-auth-integration/"
 )
 ```
 
-### Step 5: TaskManager Creates Subtasks with External Context
+### Step 5: TaskManager Creates Spec + Subtasks with External Context
 
 TaskManager creates subtask JSONs like:
 
