@@ -121,7 +121,24 @@
     },
     "build": {
       "temperature": 0.2,
-      "steps": 30
+      "steps": 30,
+      "permission": {
+        "read": "allow",
+        "edit": "allow",
+        "write": "allow",
+        "bash": {
+          "*": "ask",
+          "npm run build*": "allow",
+          "npm run lint*": "allow",
+          "pnpm build*": "allow",
+          "yarn build*": "allow",
+          "npx tsc*": "allow",
+          "tsc*": "allow",
+          "go build*": "allow",
+          "cargo build*": "allow",
+          "python -m build*": "allow"
+        }
+      }
     }
   },
   "tool_output": {
